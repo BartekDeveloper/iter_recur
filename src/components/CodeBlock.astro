@@ -1,0 +1,31 @@
+---
+import { codeToHtml } from "shiki";
+
+interface Props {
+  code: string;
+  lang?: string;
+}
+
+const { code, lang = "java" } = Astro.props;
+
+const html = await codeToHtml(code, {
+  lang,
+  theme: "github-dark",
+});
+---
+
+<div class="bg-card rounded-xl p-4 border border-border overflow-x-auto" set:html={html} />
+
+<style is:global>
+  .shiki {
+    background: transparent !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  pre {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+  }
+</style>

@@ -1,17 +1,141 @@
 ---
-import Layout from "@/layouts/main.astro"
-import { Button } from "@/components/ui/button"
+import LessonLayout from "@/layouts/LessonLayout.astro"
+import { Section, InfoBox } from "@/components/Section"
+import CodeBlock from "@/components/CodeBlock.astro"
+import { RiRefreshLine, RiFunctionLine, RiAlertLine, RiLightbulbLine, RiArrowRightSLine } from "@remixicon/react"
 ---
 
-<Layout>
-  <div class="flex min-h-svh p-6">
-    <div class="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-      <div>
-        <h1 class="font-medium">Project ready!</h1>
-        <p>You may now add components and start building.</p>
-        <p>We've already added the button component for you.</p>
-        <Button client:load className="mt-2">Button</Button>
+<LessonLayout title="Iteracja vs Rekurencja - Teoria">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <Section title="1. Wprowadzenie" titleColor="text-primary">
+      <p class="text-lg text-muted-foreground mb-4">
+        Iteracja i rekurencja to dwa rozne sposoby powtarzania dzialan w programowaniu.
+      </p>
+      <p class="text-lg text-muted-foreground mb-4">
+        Obie techniki sluza do rozwiazywania problemow, ale dzialaja w inny sposob.
+      </p>
+      <InfoBox>
+        <ul class="space-y-3 text-lg">
+          <li class="flex items-center gap-3">
+            <RiRefreshLine className="size-6 text-primary" />
+            <span><strong class="text-primary">Iteracja</strong> = powtarzanie za pomoca petli</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <RiFunctionLine className="size-6 text-purple-500" />
+            <span><strong class="text-purple-500">Rekurencja</strong> = funkcja wywoluje sama siebie</span>
+          </li>
+        </ul>
+      </InfoBox>
+    </Section>
+
+    <Section title="2. Czym jest Iteracja?" titleColor="text-primary">
+      <p class="text-lg text-muted-foreground mb-4">
+        Iteracja uzywa petli do wykonywania kodu wielokrotnie, dopoki warunek jest spelniony.
+      </p>
+      <p class="text-lg text-muted-foreground mb-4">
+        Program pozostaje w tym samym "miejscu", dlatego iteracja jest zazwyczaj szybsza i zuzywa mniej pamieci.
+      </p>
+
+      <h3 class="text-2xl font-semibold text-foreground mb-4">Przyklad: Odliczanie za pomoca petli</h3>
+      <CodeBlock code={`public class Main {
+    public static void main(String[] args) {
+        countdownIteration(5);
+    }
+    
+    public static void countdownIteration(int n) {
+        while (n > 0) {
+            System.out.println(n);
+            n--;
+        }
+    }
+}`} lang="java" />
+
+      <h4 class="text-xl font-semibold text-foreground mb-3 mt-6">Jak to dziala?</h4>
+      <InfoBox>
+        <div className="font-mono text-lg text-foreground">
+          5<br/>4<br/>3<br/>2<br/>1
+        </div>
+      </InfoBox>
+      <p class="text-lg text-muted-foreground mt-4">
+        Petla dziala, dopoki n nie bedzie rowne 0.
+      </p>
+    </Section>
+
+    <Section title="3. Czym jest Rekurencja?" titleColor="text-purple-500">
+      <p class="text-lg text-muted-foreground mb-4">
+        Rekurencja wystepuje wtedy, gdy funkcja wywoluje sama siebie.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <InfoBox borderColor="border-green-500/30">
+          <h3 className="text-xl font-bold text-green-500 mb-3 flex items-center gap-2">
+            <RiLightbulbLine className="size-5" />
+            Przypadek Bazowy
+          </h3>
+          <p className="text-muted-foreground">Warunek zatrzymania. Bez niego funkcja dzialalaby w nieskonczonosc.</p>
+        </InfoBox>
+        <InfoBox borderColor="border-blue-500/30">
+          <h3 className="text-xl font-bold text-blue-500 mb-3 flex items-center gap-2">
+            <RiRefreshLine className="size-5" />
+            Krok Rekurencyjny
+          </h3>
+          <p className="text-muted-foreground">Funkcja wywoluje sama siebie z mniejszym lub prostszym problemem.</p>
+        </InfoBox>
       </div>
-    </div>
+
+      <h3 class="text-2xl font-semibold text-foreground mb-4">Przyklad: Odliczanie z Rekurencja</h3>
+      <CodeBlock code={`public class Main {
+    public static void main(String[] args) {
+        countdownRecursion(5);
+    }
+    
+    public static void countdownRecursion(int n) {
+        if (n <= 0) return;
+        
+        System.out.println(n);
+        countdownRecursion(n - 1);
+    }
+}`} lang="java" />
+    </Section>
+
+    <Section title="4. Stos Wywolan" titleColor="text-orange-500">
+      <p class="text-lg text-muted-foreground mb-4">
+        Podczas rekurencji komputer musi pamietac kazde wywolanie funkcji.
+      </p>
+      <p class="text-lg text-muted-foreground mb-4">
+        Mozna to porownac do ukladania ksiazek na stosie.
+      </p>
+
+      <InfoBox borderColor="border-red-500/30">
+        <h3 className="text-xl font-bold text-red-500 mb-3 flex items-center gap-2">
+          <RiAlertLine className="size-5" />
+          Stack Overflow
+        </h3>
+        <p className="text-muted-foreground">
+          Jesli wywolan bedzie zbyt duzo, program moze sie zatrzymac z bledem Stack Overflow.
+          Iteracja zazwyczaj nie ma tego problemu.
+        </p>
+      </InfoBox>
+    </Section>
+
+    <Section title="5. Modele Myslenia" titleColor="text-yellow-500">
+      <div class="grid md:grid-cols-2 gap-6">
+        <InfoBox borderColor="border-blue-500/30">
+          <h3 className="text-xl font-bold text-blue-500 mb-3 flex items-center gap-2">
+            <RiRefreshLine className="size-5" />
+            Iteracja = Bieznia
+          </h3>
+          <p className="text-muted-foreground">Powtarzasz kroki, dopoki warunek nie powie "stop".</p>
+        </InfoBox>
+        <InfoBox borderColor="border-purple-500/30">
+          <h3 className="text-xl font-bold text-purple-500 mb-3 flex items-center gap-2">
+            <RiFunctionLine className="size-5" />
+            Rekurencja = Matrioszki
+          </h3>
+          <p className="text-muted-foreground">Otwierasz jedna lalke, potem kolejną mniejsza, potem nastepna...</p>
+        </InfoBox>
+      </div>
+    </Section>
+
   </div>
-</Layout>
+</LessonLayout>
