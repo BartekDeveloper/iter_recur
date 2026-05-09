@@ -18,9 +18,9 @@ export function Header({ currentPath }: HeaderProps) {
           <div className="flex items-center gap-3">
             <nav className="flex gap-1">
               <a
-                href="/"
+                href="/iter_recur/"
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  currentPath === "/"
+                  currentPath === "/iter_recur/" || currentPath === "/iter_recur"
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
@@ -29,15 +29,15 @@ export function Header({ currentPath }: HeaderProps) {
                 Teoria
               </a>
               <a
-                href="/exercises"
+                href="/iter_recur/exercises"
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  currentPath === "/exercises"
+                  currentPath === "/iter_recur/exercises"
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
               >
                 <RiCodeLine className="size-4" />
-                Cwiczenia
+                Ćwiczenia
               </a>
             </nav>
             <div className="w-px h-6 bg-border mx-2" />

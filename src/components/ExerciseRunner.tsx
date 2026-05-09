@@ -24,16 +24,16 @@ const exercises: Exercise[] = [
   {
     id: 1,
     title: "Zadanie 1: Odliczanie",
-    description: `Napisz metode countdown(int n), ktora przyjmuje liczbe calkowita n i zwraca string zawierajacy wszystkie liczby od n do 1, kazda w nowej linii.
+    description: `Napisz metodę countdown(int n), która przyjmuje liczbę całkowitą n i zwraca string zawierający wszystkie liczby od n do 1, każda w nowej linii.
 
 Wymagania:
 - Metoda przyjmuje jeden parametr typu int o nazwie n
 - Metoda zwraca String
-- Liczby musza byc wypisane w porzadku malejacym (n, n-1, ..., 1)
-- Kazda liczba powinna byc w osobnej linii
-- Nie dodawaj pustej linii na poczatku ani na koncu
+- Liczby muszą być wypisane w porządku malejącym (n, n-1, ..., 1)
+- Każda liczba powinna być w osobnej linii
+- Nie dodawaj pustej linii na początku ani na końcu
 
-Przyklad:
+Przykład:
 dla n = 5:
 5
 4
@@ -49,18 +49,18 @@ dla n = 5:
   {
     id: 2,
     title: "Zadanie 2: Silnia",
-    description: `Napisz metode factorial(int n), ktora oblicza silnie z liczby n (n!).
+    description: `Napisz metodę factorial(int n), która oblicza silnię z liczby n (n!).
 
 Wymagania:
 - Metoda przyjmuje jeden parametr typu int o nazwie n
-- Metoda zwraca long (silnia moze byc bardzo duza)
+- Metoda zwraca long (silnia może być bardzo duża)
 - Silnia to iloczyn wszystkich liczb od 1 do n
-- Dla n = 0 i n = 1 zwroc 1 (0! = 1, 1! = 1)
-- Uzyj petli for lub while do obliczen
+- Dla n = 0 i n = 1 zwróć 1 (0! = 1, 1! = 1)
+- Użyj pętli for lub while do obliczeń
 
-Wzor: n! = 1 * 2 * 3 * ... * n
+Wzór: n! = 1 * 2 * 3 * ... * n
 
-Przyklad:
+Przykład:
 dla n = 5: 5! = 1 * 2 * 3 * 4 * 5 = 120`,
     input: 5,
     expectedOutput: "120",
@@ -71,16 +71,16 @@ dla n = 5: 5! = 1 * 2 * 3 * 4 * 5 = 120`,
   {
     id: 3,
     title: "Zadanie 3: Suma tablicy",
-    description: `Napisz metode sumArray(int[] arr), ktora oblicza sume wszystkich elementow w tablicy.
+    description: `Napisz metodę sumArray(int[] arr), która oblicza sumę wszystkich elementów w tablicy.
 
 Wymagania:
 - Metoda przyjmuje jeden parametr typu int[] o nazwie arr
 - Metoda zwraca int
-- Zwraca sume wszystkich elementow tablicy
-- Jesli tablica jest pusta lub null, zwroc 0
-- Uzyj petli for-each lub zwyklej petli for
+- Zwraca sumę wszystkich elementów tablicy
+- Jeśli tablica jest pusta lub null, zwróć 0
+- Użyj pętli for-each lub zwykłej pętli for
 
-Przyklad:
+Przykład:
 dla arr = {1, 2, 3, 4, 5}: 1 + 2 + 3 + 4 + 5 = 15`,
     input: [1, 2, 3, 4, 5],
     expectedOutput: "15",
@@ -91,17 +91,17 @@ dla arr = {1, 2, 3, 4, 5}: 1 + 2 + 3 + 4 + 5 = 15`,
   {
     id: 4,
     title: "Zadanie 4: Fibonacci (iteracyjnie)",
-    description: `Napisz metode fibonacci(int n), ktora zwraca n-ta liczbe ciagu Fibonacciego uzywajac podejscia iteracyjnego.
+    description: `Napisz metodę fibonacci(int n), która zwraca n-tą liczbę ciągu Fibonacciego używając podejścia iteracyjnego.
 
 Wymagania:
 - Metoda przyjmuje jeden parametr typu int o nazwie n
 - Metoda zwraca long
-- Ciag Fibonacciego: F(0)=0, F(1)=1, F(n)=F(n-1)+F(n-2)
-- Dla n = 0 zwroc 0, dla n = 1 zwroc 1
-- Uzyj petli for z dwiema zmiennymi do przechowywania poprzednich wartosci
-- NIE UZYWAJ rekurencji - to zadanie o iteracji!
+- Ciąg Fibonacciego: F(0)=0, F(1)=1, F(n)=F(n-1)+F(n-2)
+- Dla n = 0 zwróć 0, dla n = 1 zwróć 1
+- Użyj pętli for z dwiema zmiennymi do przechowywania poprzednich wartości
+- NIE UŻYWAJ rekurencji - to zadanie o iteracji!
 
-Przyklad:
+Przykład:
 dla n = 10: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 -> wynik to 55`,
     input: 10,
     expectedOutput: "55",
@@ -112,17 +112,17 @@ dla n = 10: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 -> wynik to 55`,
   {
     id: 5,
     title: "Zadanie 5: Odwroc tablice",
-    description: `Napisz metode reverseArray(int[] arr), ktora odwraca kolejnosci elementow w tablicy i zwraca je jako string.
+    description: `Napisz metodę reverseArray(int[] arr), która odwraca kolejności elementów w tablicy i zwraca je jako string.
 
 Wymagania:
 - Metoda przyjmuje jeden parametr typu int[] o nazwie arr
 - Metoda zwraca String
-- Elementy powinny byc oddzielone przecinkami BEZ spacji
-- Ostatni element NIE powinien miec przecinka po sobie
-- Tablica powinna byc odwrocona (pierwszy element staje sie ostatnim)
-- Nie uzywaj Collections.reverse() - samodzielnie odwroc tablice
+- Elementy powinny być oddzielone przecinkami BEZ spacji
+- Ostatni element NIE powinien mieć przecinka po sobie
+- Tablica powinna być odwrócona (pierwszy element staje się ostatnim)
+- Nie używaj Collections.reverse() - samodzielnie odwróć tablice
 
-Przyklad:
+Przykład:
 dla arr = {1, 2, 3, 4, 5}: wynik to "5,4,3,2,1"`,
     input: [1, 2, 3, 4, 5],
     expectedOutput: "5,4,3,2,1",
