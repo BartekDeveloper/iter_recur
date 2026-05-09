@@ -26,6 +26,7 @@ function coepHeaders() {
 
 // https://astro.build/config
 export default defineConfig({
+  base: '/iter_recur',
   vite: {
     plugins: [tailwindcss(), coepHeaders()],
   },
