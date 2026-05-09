@@ -2,41 +2,79 @@
 import LessonLayout from "@/layouts/LessonLayout.astro"
 import { Section, InfoBox } from "@/components/Section"
 import CodeBlock from "@/components/CodeBlock.astro"
-import { RiRefreshLine, RiFunctionLine, RiAlertLine, RiLightbulbLine, RiArrowRightSLine } from "@remixicon/react"
+import {
+  RiRefreshLine,
+  RiFunctionLine,
+  RiAlertLine,
+  RiLightbulbLine,
+  RiArrowRightSLine,
+  RiCheckboxCircleLine,
+  RiCloseCircleLine,
+  RiBrainLine,
+  RiGitBranchLine,
+  RiFileChartLine,
+  RiCheckLine,
+  RiCloseLine,
+  RiFlaskLine,
+} from "@remixicon/react"
 ---
 
 <LessonLayout title="Iteracja vs Rekurencja - Teoria">
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <Section title="1. Wprowadzenie" titleColor="text-primary">
-      <p class="text-lg text-muted-foreground mb-4">
-        Iteracja i rekurencja to dwa rozne sposoby powtarzania dzialan w programowaniu.
-      </p>
-      <p class="text-lg text-muted-foreground mb-4">
-        Obie techniki sluza do rozwiazywania problemow, ale dzialaja w inny sposob.
-      </p>
-      <InfoBox>
-        <ul class="space-y-3 text-lg">
-          <li class="flex items-center gap-3">
-            <RiRefreshLine className="size-6 text-primary" />
-            <span><strong class="text-primary">Iteracja</strong> = powtarzanie za pomoca petli</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <RiFunctionLine className="size-6 text-purple-500" />
-            <span><strong class="text-purple-500">Rekurencja</strong> = funkcja wywoluje sama siebie</span>
-          </li>
-        </ul>
+  <div class="max-w-4xl mx-auto px-6 py-10 space-y-16">
+    <!-- Wprowadzenie -->
+    <div class="text-center space-y-4 pb-8 border-b border-border">
+      <h1 class="text-4xl font-bold text-foreground">Iteracja vs Rekurencja</h1>
+      <p class="text-xl text-muted-foreground">Dwa fundamentalne podejscia do rozwiazywania problemow w programowaniu</p>
+    </div>
+
+    <Section title="Wprowadzenie" titleColor="text-primary">
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-foreground/90 leading-relaxed">
+          <span class="font-semibold text-primary">Iteracja</span> i <span class="font-semibold text-purple-500">rekurencja</span> to dwa rozne sposoby powtarzania dzialan w programowaniu.
+        </p>
+        <p class="text-lg text-foreground/80 leading-relaxed mt-4">
+          Obie techniki sluza do rozwiazywania problemow, ale dzialaja w <span class="font-semibold">calkowicie inny sposob</span>. Poznaj ich zalety i wady!
+        </p>
+      </div>
+      <InfoBox borderColor="border-primary/40 bg-primary/5">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-primary/10 rounded-lg">
+              <RiRefreshLine className="size-8 text-primary" />
+            </div>
+            <div>
+              <h4 class="font-bold text-primary text-lg">Iteracja</h4>
+              <p class="text-muted-foreground text-sm mt-1">Powtarzanie za pomoca petli (for, while, do-while)</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-purple-500/10 rounded-lg">
+              <RiFunctionLine className="size-8 text-purple-500" />
+            </div>
+            <div>
+              <h4 class="font-bold text-purple-500 text-lg">Rekurencja</h4>
+              <p class="text-muted-foreground text-sm mt-1">Funkcja wywoluje sama siebie</p>
+            </div>
+          </div>
+        </div>
       </InfoBox>
     </Section>
 
-    <Section title="2. Czym jest Iteracja?" titleColor="text-primary">
-      <p class="text-lg text-muted-foreground mb-4">
-        Iteracja uzywa petli do wykonywania kodu wielokrotnie, dopoki warunek jest spelniony.
-      </p>
-      <p class="text-lg text-muted-foreground mb-4">
-        Program pozostaje w tym samym "miejscu", dlatego iteracja jest zazwyczaj szybsza i zuzywa mniej pamieci.
-      </p>
+    <!-- 1. Czym jest Iteracja -->
+    <Section title="1. Czym jest Iteracja?" titleColor="text-primary">
+      <div class="bg-blue-500/5 border-l-4 border-blue-500 p-4 rounded-r-lg mb-6">
+        <p class="text-lg text-foreground/90 leading-relaxed">
+          <span class="font-semibold text-blue-500">Iteracja</span> uzera petli do wykonywania kodu wielokrotnie, dopoki warunek jest spelniony.
+        </p>
+        <p class="text-base text-muted-foreground mt-3">
+          Program pozostaje w tym samym "miejscu" w pamieci — dlatego iteracja jest zazwyczaj <span class="font-semibold text-green-500">szybsza</span> i zużywa <span class="font-semibold text-green-500">mniej pamieci</span>.
+        </p>
+      </div>
 
-      <h3 class="text-2xl font-semibold text-foreground mb-4">Przyklad: Odliczanie za pomoca petli</h3>
+      <h3 class="text-xl font-semibold text-foreground mb-4 flex items-center gap-3">
+        <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary text-sm">1</span>
+        Przyklad: Odliczanie za pomoca petli
+      </h3>
       <CodeBlock code={`public class Main {
     public static void main(String[] args) {
         countdownIteration(5);
@@ -50,40 +88,63 @@ import { RiRefreshLine, RiFunctionLine, RiAlertLine, RiLightbulbLine, RiArrowRig
     }
 }`} lang="java" />
 
-      <h4 class="text-xl font-semibold text-foreground mb-3 mt-6">Jak to dziala?</h4>
-      <InfoBox>
-        <div className="font-mono text-lg text-foreground">
-          5<br/>4<br/>3<br/>2<br/>1
-        </div>
-      </InfoBox>
-      <p class="text-lg text-muted-foreground mt-4">
-        Petla dziala, dopoki n nie bedzie rowne 0.
-      </p>
+      <div class="mt-6">
+        <h4 class="text-lg font-semibold text-foreground mb-3">Jak to dziala?</h4>
+        <p class="text-muted-foreground mb-3">Dla <span class="font-mono text-primary font-semibold">n = 5</span>:</p>
+        <InfoBox borderColor="border-green-500/30 bg-green-500/5">
+          <div class="font-mono text-base text-foreground space-y-1">
+            <div>n = 5, drukuj 5, n--</div>
+            <div>n = 4, drukuj 4, n--</div>
+            <div>n = 3, drukuj 3, n--</div>
+            <div>n = 2, drukuj 2, n--</div>
+            <div>n = 1, drukuj 1, n--</div>
+            <div class="text-red-400">n = 0, warunek FALSZ, koniec</div>
+          </div>
+        </InfoBox>
+      </div>
     </Section>
 
-    <Section title="3. Czym jest Rekurencja?" titleColor="text-purple-500">
-      <p class="text-lg text-muted-foreground mb-4">
-        Rekurencja wystepuje wtedy, gdy funkcja wywoluje sama siebie.
+    <!-- 2. Czym jest Rekurencja -->
+    <Section title="2. Czym jest Rekurencja?" titleColor="text-purple-500">
+      <div class="bg-purple-500/5 border-l-4 border-purple-500 p-4 rounded-r-lg mb-6">
+        <p class="text-lg text-foreground/90">
+          <span class="font-semibold text-purple-500">Rekurencja</span> wystepuje wtedy, gdy funkcja wywoluje sama siebie.
+        </p>
+      </div>
+      
+      <p class="text-lg text-foreground/80 mb-6">
+        Kazda funkcja rekurencyjna musi miec <span class="font-bold text-foreground">dwa kluczowe elementy</span>:
       </p>
 
       <div class="grid md:grid-cols-2 gap-6 mb-6">
-        <InfoBox borderColor="border-green-500/30">
-          <h3 className="text-xl font-bold text-green-500 mb-3 flex items-center gap-2">
-            <RiLightbulbLine className="size-5" />
-            Przypadek Bazowy
-          </h3>
-          <p className="text-muted-foreground">Warunek zatrzymania. Bez niego funkcja dzialalaby w nieskonczonosc.</p>
+        <InfoBox borderColor="border-green-500/40 bg-green-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiLightbulbLine className="size-7 text-green-500" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-green-500 mb-2">Przypadek Bazowy</h3>
+              <p className="text-muted-foreground text-sm">Warunek zatrzymania. Bez niego funkcja dzialalaby w nieskonczonosc!</p>
+            </div>
+          </div>
         </InfoBox>
-        <InfoBox borderColor="border-blue-500/30">
-          <h3 className="text-xl font-bold text-blue-500 mb-3 flex items-center gap-2">
-            <RiRefreshLine className="size-5" />
-            Krok Rekurencyjny
-          </h3>
-          <p className="text-muted-foreground">Funkcja wywoluje sama siebie z mniejszym lub prostszym problemem.</p>
+        <InfoBox borderColor="border-blue-500/40 bg-blue-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiRefreshLine className="size-7 text-blue-500" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-blue-500 mb-2">Krok Rekurencyjny</h3>
+              <p className="text-muted-foreground text-sm">Funkcja wywoluje sama siebie z mniejszym lub prostszym problemem.</p>
+            </div>
+          </div>
         </InfoBox>
       </div>
 
-      <h3 class="text-2xl font-semibold text-foreground mb-4">Przyklad: Odliczanie z Rekurencja</h3>
+      <h3 class="text-xl font-semibold text-foreground mb-4 flex items-center gap-3">
+        <span class="w-8 h-8 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-500 text-sm">2</span>
+        Przyklad: Odliczanie z Rekurencja
+      </h3>
       <CodeBlock code={`public class Main {
     public static void main(String[] args) {
         countdownRecursion(5);
@@ -91,51 +152,772 @@ import { RiRefreshLine, RiFunctionLine, RiAlertLine, RiLightbulbLine, RiArrowRig
     
     public static void countdownRecursion(int n) {
         if (n <= 0) return;
-        
         System.out.println(n);
         countdownRecursion(n - 1);
     }
 }`} lang="java" />
     </Section>
 
-    <Section title="4. Stos Wywolan" titleColor="text-orange-500">
-      <p class="text-lg text-muted-foreground mb-4">
-        Podczas rekurencji komputer musi pamietac kazde wywolanie funkcji.
+    <!-- 3. Stos Wywolan -->
+    <Section title="3. Stos Wywolan (Call Stack)" titleColor="text-orange-500">
+      <div class="bg-orange-500/5 border-l-4 border-orange-500 p-4 rounded-r-lg mb-6">
+        <p class="text-lg text-foreground/90">
+          Podczas rekurencji komputer musi <span class="font-semibold text-orange-500">pamietac kazde wywolanie funkcji</span>.
+        </p>
+      </div>
+      
+      <p class="text-base text-foreground/80 leading-relaxed mb-6">
+        Mozna to porownac do <span class="font-semibold text-foreground">ukladania ksiazek na stosie</span> — jedno wywolanie trafia na gore, potem kolejne.
       </p>
-      <p class="text-lg text-muted-foreground mb-4">
-        Mozna to porownac do ukladania ksiazek na stosie.
+      
+      <InfoBox borderColor="border-red-500/40 bg-red-500/5">
+        <div class="flex">
+          <div class="w-10 flex-shrink-0">
+            <RiAlertLine className="size-7 text-red-500" />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-red-500 mb-2">Stack Overflow</h3>
+            <p className="text-muted-foreground">
+              Jesli wywolan bedzie zbyt duzo, program moze sie zatrzymac z bledem <span class="font-mono text-red-400">StackOverflowError</span>.
+              Iteracja zazwyczaj nie ma tego problemu.
+            </p>
+          </div>
+        </div>
+      </InfoBox>
+    </Section>
+
+    <!-- 4. Modele Myslenia -->
+    <Section title="4. Modele Myslenia" titleColor="text-yellow-500">
+      <p class="text-lg text-foreground/80 mb-6">
+        Poznaj intuicyjne skojarzenia, ktore pomoga Ci zapamietac roznic:
+      </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <InfoBox borderColor="border-blue-500/40 bg-blue-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiRefreshLine className="size-7 text-blue-500" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-blue-500 mb-3">Iteracja = Bieznia</h3>
+              <p className="text-muted-foreground mb-3">Powtarzasz kroki, dopoki warunek nie powie "stop".</p>
+              <div className="font-mono text-sm text-muted-foreground bg-muted p-2 rounded">
+                krok -> sprawdzenie -> krok -> sprawdzenie
+              </div>
+            </div>
+          </div>
+        </InfoBox>
+        <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiFunctionLine className="size-7 text-purple-500" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-purple-500 mb-3">Rekurencja = Matrioszki</h3>
+              <p className="text-muted-foreground">Otwierasz jedna lalke, potem kolejna mniejsza, potem nastepna...</p>
+              <p className="text-muted-foreground mt-2">Na koniec dochodzisz do najmniejszej lalki (przypadek bazowy), a potem wracasz z powrotem.</p>
+            </div>
+          </div>
+        </InfoBox>
+      </div>
+    </Section>
+
+    <!-- 5. Przyklad — Silnia -->
+    <Section title="5. Przyklad — Silnia" titleColor="text-cyan-500">
+      <p class="text-lg text-muted-foreground mb-6">
+        Silnia to iloczyn wszystkich liczb naturalnych od 1 do n:
+        <span class="font-mono ml-2">5! = 5 x 4 x 3 x 2 x 1 = 120</span>
       </p>
 
-      <InfoBox borderColor="border-red-500/30">
-        <h3 className="text-xl font-bold text-red-500 mb-3 flex items-center gap-2">
-          <RiAlertLine className="size-5" />
-          Stack Overflow
-        </h3>
-        <p className="text-muted-foreground">
-          Jesli wywolan bedzie zbyt duzo, program moze sie zatrzymac z bledem Stack Overflow.
-          Iteracja zazwyczaj nie ma tego problemu.
+      <h3 class="text-xl font-semibold text-foreground mb-4">Silnia — Iteracyjnie</h3>
+      <CodeBlock code={`public class Factorial {
+    public static long factorialIteration(int n) {
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+}`} lang="java" />
+
+      <h3 class="text-xl font-semibold text-foreground mb-4 mt-8">Silnia — Rekurencyjnie</h3>
+      <CodeBlock code={`public class Factorial {
+    public static long factorialRecursion(int n) {
+        if (n <= 1) return 1;
+        return n * factorialRecursion(n - 1);
+    }
+}`} lang="java" />
+
+      <InfoBox borderColor="border-primary/30 bg-primary/5" className="mt-6">
+        <p className="text-foreground">
+          <strong className="text-primary">Wynik:</strong> factorial(5) = 120
         </p>
       </InfoBox>
     </Section>
 
-    <Section title="5. Modele Myslenia" titleColor="text-yellow-500">
-      <div class="grid md:grid-cols-2 gap-6">
-        <InfoBox borderColor="border-blue-500/30">
-          <h3 className="text-xl font-bold text-blue-500 mb-3 flex items-center gap-2">
-            <RiRefreshLine className="size-5" />
-            Iteracja = Bieznia
-          </h3>
-          <p className="text-muted-foreground">Powtarzasz kroki, dopoki warunek nie powie "stop".</p>
+    <!-- 6. Zalety, Wady i Ograniczenia -->
+    <Section title="6. Zalety, Wady i Ograniczenia" titleColor="text-pink-500">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b-2 border-border bg-muted/50">
+              <th class="p-4 text-lg font-bold text-foreground">Cecha</th>
+              <th class="p-4 text-lg font-bold text-primary">Iteracja</th>
+              <th class="p-4 text-lg font-bold text-purple-500">Rekurencja</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-border border-l-4 border-l-green-500">
+              <td class="p-4 text-muted-foreground font-medium">Szybkosc</td>
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <RiCheckLine className="size-5 text-green-500" />
+                  <span class="text-green-500">Zazwyczaj szybsza</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <RiCloseLine className="size-5 text-orange-500" />
+                  <span class="text-orange-500">Zazwyczaj wolniejsza</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-b border-border border-l-4 border-l-green-500">
+              <td class="p-4 text-muted-foreground font-medium">Pamiec</td>
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <RiCheckLine className="size-5 text-green-500" />
+                  <span class="text-green-500">Zużywa mniej</span>
+                </div>
+              </td>
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <RiCloseLine className="size-5 text-orange-500" />
+                  <span class="text-orange-500">Zużywa wiecej</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-b border-border border-l-4 border-l-blue-500">
+              <td class="p-4 text-muted-foreground font-medium">Czytelnosc</td>
+              <td class="p-4 text-muted-foreground">Dobra przy prostych zadaniach</td>
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <RiCheckLine className="size-5 text-green-500" />
+                  <span class="text-green-500">Czesciej bardziej elegancka</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="border-b border-border border-l-4 border-l-red-500">
+              <td class="p-4 text-muted-foreground font-medium">Ryzyko</td>
+              <td class="p-4 text-orange-500">Nieskonczona petla</td>
+              <td class="p-4 text-red-500">Stack Overflow</td>
+            </tr>
+            <tr class="border-b border-border border-l-4 border-l-green-500">
+              <td class="p-4 text-muted-foreground font-medium">Skalowanie</td>
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <RiCheckLine className="size-5 text-green-500" />
+                  <span class="text-green-500">Dobrze przy duzych danych</span>
+                </div>
+              </td>
+              <td class="p-4 text-orange-500">Problemy przy duzej glebokosci</td>
+            </tr>
+            <tr class="border-l-4 border-l-green-500">
+              <td class="p-4 text-muted-foreground font-medium">Debugowanie</td>
+              <td class="p-4">
+                <div class="flex items-center gap-3">
+                  <RiCheckLine className="size-5 text-green-500" />
+                  <span class="text-green-500">Zwykle prostsze</span>
+                </div>
+              </td>
+              <td class="p-4 text-orange-500">Trudniejsze przez wiele wywolan</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </Section>
+
+    <!-- 7. Zalety Iteracji -->
+    <Section title="7. Zalety Iteracji" titleColor="text-green-500">
+      <div class="space-y-6">
+        <InfoBox borderColor="border-green-500/40 bg-green-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-green-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-green-500 mb-3">1. Lepsza wydajnosc</h3>
+              <p className="text-muted-foreground mb-3">Petle zwykle dzialaja szybciej niz rekurencja, poniewaz nie tworza nowych wywolan funkcji.</p>
+              <CodeBlock code={`for (int i = 0; i < 1000; i++) {
+    // szybkie powtarzanie
+}`} lang="java" />
+            </div>
+          </div>
         </InfoBox>
-        <InfoBox borderColor="border-purple-500/30">
-          <h3 className="text-xl font-bold text-purple-500 mb-3 flex items-center gap-2">
-            <RiFunctionLine className="size-5" />
-            Rekurencja = Matrioszki
-          </h3>
-          <p className="text-muted-foreground">Otwierasz jedna lalke, potem kolejną mniejsza, potem nastepna...</p>
+
+        <InfoBox borderColor="border-green-500/40 bg-green-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-green-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-green-500 mb-3">2. Mniejsze zuzycie pamieci</h3>
+              <p className="text-muted-foreground">Iteracja dziala w jednym miejscu pamieci. Nie tworzy nowych "warstw" na stosie wywolan.</p>
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-green-500/40 bg-green-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-green-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-green-500 mb-3">3. Dobra dla duzych danych</h3>
+              <p className="text-muted-foreground">Jesli trzeba przetworzyc tysiace lub miliony elementow, iteracja jest zazwyczaj bezpieczniejsza.</p>
+            </div>
+          </div>
         </InfoBox>
       </div>
     </Section>
+
+    <!-- 8. Wady Iteracji -->
+    <Section title="8. Wady Iteracji" titleColor="text-red-500">
+      <div class="space-y-6">
+        <InfoBox borderColor="border-red-500/40 bg-red-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCloseCircleLine className="size-7 text-red-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-red-500 mb-3">1. Kod moze byc mniej czytelny</h3>
+              <p className="text-muted-foreground">Przy bardzo skomplikowanych problemach wiele petli i warunkow moze stac sie trudne do zrozumienia.</p>
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-red-500/40 bg-red-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCloseCircleLine className="size-7 text-red-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-red-500 mb-3">2. Gorzej dziala przy strukturach zagniezdzonych</h3>
+              <p className="text-muted-foreground">Drzewa, foldery lub HTML czesto latwiej obsluzyc rekurencja.</p>
+            </div>
+          </div>
+        </InfoBox>
+      </div>
+    </Section>
+
+    <!-- 9. Zalety Rekurencji -->
+    <Section title="9. Zalety Rekurencji" titleColor="text-purple-500">
+      <div class="space-y-6">
+        <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-purple-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-purple-500 mb-3">1. Bardziej naturalne rozwiazanie</h3>
+              <p className="text-muted-foreground mb-3">Niektore problemy "same prosza sie" o rekurencje:</p>
+              <ul class="list-disc list-inside text-muted-foreground ml-2 space-y-1">
+                <li>drzewa</li>
+                <li>foldery / system plikow</li>
+                <li>grafy</li>
+                <li>DOM / HTML</li>
+              </ul>
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-purple-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-purple-500 mb-3">2. Krotszy i czystszy kod</h3>
+              <p className="text-muted-foreground mb-3">Rekurencja czesto pozwala napisac mniej kodu.</p>
+              <CodeBlock code={`public static long factorial(int n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}`} lang="java" />
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-purple-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-purple-500 mb-3">3. Latwiejsze myslenie o problemie</h3>
+              <p className="text-muted-foreground">Problem mozna dzielic na mniejsze wersje tego samego zadania.</p>
+            </div>
+          </div>
+        </InfoBox>
+      </div>
+    </Section>
+
+    <!-- 10. Wady Rekurencji -->
+    <Section title="10. Wady Rekurencji" titleColor="text-red-500">
+      <div class="space-y-6">
+        <InfoBox borderColor="border-red-500/40 bg-red-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCloseCircleLine className="size-7 text-red-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-red-500 mb-3">1. Wieksze zuzycie pamieci</h3>
+              <p className="text-muted-foreground">Kazde wywolanie funkcji trafia na stos wywolan. Duza liczba wywolan = wieksze zuzycie pamieci.</p>
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-red-500/40 bg-red-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCloseCircleLine className="size-7 text-red-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-red-500 mb-3">2. Ryzyko Stack Overflow</h3>
+              <p className="text-muted-foreground mb-3">Jesli rekurencja jest zbyt gleboka albo nie ma poprawnego przypadku bazowego, program moze sie zatrzymac.</p>
+              <p className="text-muted-foreground mb-2">Przyklad zlej rekurencji:</p>
+              <CodeBlock code={`public static void badRecursion() {
+    badRecursion();
+}`} lang="java" />
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-red-500/40 bg-red-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCloseCircleLine className="size-7 text-red-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-red-500 mb-3">3. Wolniejsze dzialanie</h3>
+              <p className="text-muted-foreground">Kazde wywolanie funkcji ma swoj koszt. Przy tysiacach wywolan moze to znaczaco spowolnic program.</p>
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-red-500/40 bg-red-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCloseCircleLine className="size-7 text-red-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-red-500 mb-3">4. Trudniejsze debugowanie</h3>
+              <p className="text-muted-foreground">Sledzenie wielu wywolan funkcji moze byc trudniejsze niz analiza zwyklet petli.</p>
+            </div>
+          </div>
+        </InfoBox>
+      </div>
+    </Section>
+
+    <!-- 11. Ograniczenia Rekurencji -->
+    <Section title="11. Ograniczenia Rekurencji" titleColor="text-orange-500">
+      <div class="space-y-6">
+        <InfoBox borderColor="border-orange-500/40 bg-orange-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiAlertLine className="size-7 text-orange-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-orange-500 mb-3">Limit glebokosci</h3>
+              <p className="text-muted-foreground">Wiecejszosc jezykow programowania ma limit liczby wywolan funkcji. JavaScript, Python, Java moga wyrzucic blad po zbyt glebokiej rekurencji.</p>
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-red-500/40 bg-red-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiAlertLine className="size-7 text-red-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-red-500 mb-3">Nie kazda rekurencja jest efektywna</h3>
+              <p className="text-muted-foreground mb-3">Niektore algorytmy rekurencyjne wykonuja te same obliczenia wiele razy.</p>
+              <p className="text-muted-foreground mb-2">Przyklad: Fibonacci bez optymalizacji</p>
+              <CodeBlock code={`public static long fibonacci(int n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}`} lang="java" />
+              <p className="text-sm text-orange-500 mt-2">Dla n=40 ta funkcja wykonuje okolo 300 milionow wywolan!</p>
+            </div>
+          </div>
+        </InfoBox>
+      </div>
+    </Section>
+
+    <!-- 12. Jak Zapobiegac Problemom Rekurencji -->
+    <Section title="12. Jak Zapobiegac Problemom Rekurencji?" titleColor="text-teal-500">
+      <div class="space-y-6">
+        <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-teal-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-teal-500 mb-3">1. Zawsze dodawaj Przypadek Bazowy</h3>
+              <p className="text-muted-foreground mb-3">Bez warunku stopu rekurencja nigdy sie nie zakonczy.</p>
+              <CodeBlock code={`if (n <= 0) return;`} lang="java" />
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-teal-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-teal-500 mb-3">2. Upewnij sie, ze problem sie zmniejsza</h3>
+              <p className="text-muted-foreground mb-3">Kazde wywolanie powinno przyblizac funkcje do zakonczenia.</p>
+              <div class="grid md:grid-cols-2 gap-4 mt-3">
+                <div class="p-3 rounded-lg bg-green-500/10 border border-green-500/30">
+                  <p class="text-green-500 font-semibold mb-1">Dobrze</p>
+                  <code class="text-sm text-muted-foreground">countdown(n - 1)</code>
+                </div>
+                <div class="p-3 rounded-lg bg-red-500/10 border border-red-500/30">
+                  <p class="text-red-500 font-semibold mb-1">Zle</p>
+                  <code class="text-sm text-muted-foreground">countdown(n)</code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-teal-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-teal-500 mb-3">3. Uzywaj Memoization</h3>
+              <p className="text-muted-foreground mb-3">Memoization zapisuje wczesniejsze wyniki, aby nie liczyc ich ponownie.</p>
+              <CodeBlock code={`static long[] memo = new long[1000];
+
+public static long fibonacciMemo(int n) {
+    if (n <= 1) return n;
+    if (memo[n] != 0) return memo[n];
+    memo[n] = fibonacciMemo(n - 1) + fibonacciMemo(n - 2);
+    return memo[n];
+}`} lang="java" />
+              <p className="text-sm text-green-500 mt-2">Zamiast ~300 milionow wywolan, teraz tylko ~200!</p>
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-teal-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-teal-500 mb-3">4. Zamien Rekurencje na Iteracje</h3>
+              <p className="text-muted-foreground">Jesli glebokosc moze byc bardzo duza, lepiej uzyc petli.</p>
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-teal-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-teal-500 mb-3">5. Limit glebokosci</h3>
+              <p className="text-muted-foreground mb-3">Mozesz ograniczyc maksymalna glebokosc rekurencji:</p>
+              <CodeBlock code={`static final int DEPTH_LIMIT = 10000;
+
+public static void safeRecursion(int n, int depth) {
+    if (depth > DEPTH_LIMIT) return;
+    if (n <= 0) return;
+    safeRecursion(n - 1, depth + 1);
+}`} lang="java" />
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-teal-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-teal-500 mb-3">6. Sledzenie glebokosci wywolan</h3>
+              <p className="text-muted-foreground mb-3">Monitoruj aktualna glebokosc rekurencji w czasie rzeczywistym:</p>
+              <CodeBlock code={`static int currentDepth = 0;
+static int maxRecordedDepth = 0;
+
+public static void trackedRecursion(int n) {
+    currentDepth++;
+    maxRecordedDepth = Math.max(maxRecordedDepth, currentDepth);
+    if (n <= 0) { currentDepth--; return; }
+    trackedRecursion(n - 1);
+    currentDepth--;
+}`} lang="java" />
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-teal-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-teal-500 mb-3">7. Rekurencja ogonowa (Tail Recursion)</h3>
+              <p className="text-muted-foreground mb-3">Ostatnia operacja to wywolanie rekurencyjne:</p>
+              <CodeBlock code={`public static long factorialTail(int n, long acc) {
+    if (n <= 1) return acc;
+    return factorialTail(n - 1, acc * n);
+}`} lang="java" />
+              <p className="text-sm text-muted-foreground mt-2">Java NIE optymalizuje tail recursion!</p>
+            </div>
+          </div>
+        </InfoBox>
+      </div>
+    </Section>
+
+    <!-- 13. Kiedy Uzywac Ktorej? -->
+    <Section title="13. Kiedy Uzywac Ktorej?" titleColor="text-indigo-500">
+      <div class="space-y-6">
+        <InfoBox borderColor="border-blue-500/40 bg-blue-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiRefreshLine className="size-7 text-blue-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-blue-500 mb-3">Uzyj Iteracji Gdy:</h3>
+              <ul class="list-disc list-inside text-muted-foreground space-y-2">
+                <li>przetwarzasz tablice lub listy</li>
+                <li>wazna jest wydajnosc</li>
+                <li>problem polega na prostym powtarzaniu</li>
+                <li>dane sa bardzo duze</li>
+              </ul>
+              <p className="text-sm text-muted-foreground mt-3">Przyklady: liczenie sredniej, petle w grach</p>
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiFunctionLine className="size-7 text-purple-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-purple-500 mb-3">Uzyj Rekurencji Gdy:</h3>
+              <ul class="list-disc list-inside text-muted-foreground space-y-2">
+                <li>problem mozna podzielic na mniejsze wersje</li>
+                <li>pracujesz z drzewami lub zagniezdzonymi strukturami</li>
+                <li>dane maja strukture "galezi"</li>
+                <li>dzieki temu kod jest prostszy i czytelniejszy</li>
+              </ul>
+              <p className="text-sm text-muted-foreground mt-3">Przyklady: system plikow, HTML/DOM</p>
+            </div>
+          </div>
+        </InfoBox>
+      </div>
+    </Section>
+
+    <!-- 14. Przyklad z Zycia -->
+    <Section title="14. Przyklad z Zycia - Eksplorator Plikow" titleColor="text-amber-500">
+      <p class="text-lg text-muted-foreground mb-6">
+        Folder moze zawierac kolejne foldery. Funkcja rekurencyjna moze dzialac tak:
+      </p>
+      <InfoBox borderColor="border-amber-500/40 bg-amber-500/5" className="mb-6">
+        <div class="flex">
+          <div class="w-10 flex-shrink-0">
+            <RiFunctionLine className="size-7 text-amber-500" />
+          </div>
+          <div>
+            <div class="text-muted-foreground space-y-2">
+              <p>1. Wejdz do tego folderu</p>
+              <p>2. Dla kazdego pliku - wyswietl nazwe</p>
+              <p>3. Dla kazdego folderu - powtorz caly proces</p>
+            </div>
+          </div>
+        </div>
+      </InfoBox>
+      <p class="text-lg text-muted-foreground mb-6">
+        Dlatego rekurencja swietnie dziala przy zagniezdzonych strukturach!
+      </p>
+
+      <h3 class="text-xl font-semibold text-foreground mb-4">Przyklad: Przechodzenie przez katalogi</h3>
+      <CodeBlock code={`public static void exploreDirectory(File dir, int indent) {
+    if (!dir.isDirectory()) return;
+    File[] files = dir.listFiles();
+    if (files == null) return;
+    for (File file : files) {
+        for (int i = 0; i < indent; i++) System.out.print("  ");
+        if (file.isDirectory()) {
+            System.out.println("[DIR] " + file.getName());
+            exploreDirectory(file, indent + 1);
+        } else {
+            System.out.println("[FILE] " + file.getName());
+        }
+    }
+}`} lang="java" />
+    </Section>
+
+    <!-- 15. Wiecej Przykladow -->
+    <Section title="15. Wiecej Przykladow - Gdzie Uzywac Rekurencji?" titleColor="text-rose-500">
+      <div class="space-y-6">
+        <InfoBox borderColor="border-rose-500/40 bg-rose-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiBrainLine className="size-7 text-rose-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-rose-500 mb-3">Binary Search</h3>
+              <p className="text-muted-foreground mb-3">Podziel tablice na polowy, szukaj w odpowiedniej czesci.</p>
+              <CodeBlock code={`public static int binarySearch(int[] arr, int target, int left, int right) {
+    if (left > right) return -1;
+    int mid = left + (right - left) / 2;
+    if (arr[mid] == target) return mid;
+    if (arr[mid] < target) return binarySearch(arr, target, mid + 1, right);
+    return binarySearch(arr, target, left, mid - 1);
+}`} lang="java" />
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-rose-500/40 bg-rose-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiGitBranchLine className="size-7 text-rose-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-rose-500 mb-3">Tree Traversal</h3>
+              <p className="text-muted-foreground mb-3">Odwiedz kazdy wezel drzewa.</p>
+              <CodeBlock code={`public static void printTree(TreeNode node, int depth) {
+    if (node == null) return;
+    for (int i = 0; i < depth; i++) System.out.print("  ");
+    System.out.println(node.name);
+    if (node.children != null) {
+        for (TreeNode child : node.children) {
+            printTree(child, depth + 1);
+        }
+    }
+}`} lang="java" />
+            </div>
+          </div>
+        </InfoBox>
+
+        <InfoBox borderColor="border-rose-500/40 bg-rose-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiFileChartLine className="size-7 text-rose-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-rose-500 mb-3">Permutacje</h3>
+              <p className="text-muted-foreground mb-3">Wygeneruj wszystkie mozliwe koleonosci elementow.</p>
+              <CodeBlock code={`public static void permutations(String str, String result) {
+    if (str.length() == 0) {
+        System.out.println(result);
+        return;
+    }
+    for (int i = 0; i < str.length(); i++) {
+        String newStr = str.substring(0, i) + str.substring(i + 1);
+        permutations(newStr, result + str.charAt(i));
+    }
+}`} lang="java" />
+            </div>
+          </div>
+        </InfoBox>
+      </div>
+    </Section>
+
+    <!-- 16. Podsumowanie -->
+    <Section title="16. Podsumowanie" titleColor="text-emerald-500">
+      <div class="grid md:grid-cols-2 gap-6">
+        <InfoBox borderColor="border-blue-500/40 bg-blue-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiRefreshLine className="size-7 text-blue-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-blue-500 mb-3">Iteracja</h3>
+              <ul class="text-muted-foreground space-y-2">
+                <li>uzywa petli</li>
+                <li>jest szybsza i oszczedniejsza pamieciowo</li>
+                <li>dobra do prostych powtarzalnych zadan</li>
+                <li>nie ryzykuje Stack Overflow</li>
+              </ul>
+            </div>
+          </div>
+        </InfoBox>
+        <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiFunctionLine className="size-7 text-purple-500" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-purple-500 mb-3">Rekurencja</h3>
+              <ul class="text-muted-foreground space-y-2">
+                <li>funkcja wywoluje sama siebie</li>
+                <li>swietna do zagniezdzonych problemow</li>
+                <li>wymaga przypadku bazowego</li>
+                <li>moze zuzywac wiecej pamieci</li>
+              </ul>
+            </div>
+          </div>
+        </InfoBox>
+      </div>
+    </Section>
+
+    <!-- 17. Szybka Zasada -->
+    <Section title="17. Szybka Zasada — Ktory Wybrac?" titleColor="text-yellow-500">
+      <p class="text-lg text-muted-foreground mb-6">Zadaj sobie pytania:</p>
+      <div class="space-y-4">
+        <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiAlertLine className="size-7 text-purple-500" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-purple-500">Czy problem jest zagniezdzony lub przypomina drzewo?</h3>
+              <p className="text-muted-foreground mt-2">Uzyj <strong class="text-purple-500">rekurencji</strong></p>
+            </div>
+          </div>
+        </InfoBox>
+        <InfoBox borderColor="border-blue-500/40 bg-blue-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiAlertLine className="size-7 text-blue-500" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-blue-500">Czy najwazniejsza jest wydajnosc i pamiec?</h3>
+              <p className="text-muted-foreground mt-2">Uzyj <strong class="text-blue-500">iteracji</strong></p>
+            </div>
+          </div>
+        </InfoBox>
+        <InfoBox borderColor="border-green-500/40 bg-green-500/5">
+          <div class="flex">
+            <div class="w-10 flex-shrink-0">
+              <RiCheckboxCircleLine className="size-7 text-green-500" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-green-500">Ktore rozwiazanie jest prostsze do zrozumienia?</h3>
+              <p className="text-muted-foreground mt-2">Zazwyczaj to bedzie <strong class="text-green-500">lepszy wybor!</strong></p>
+            </div>
+          </div>
+        </InfoBox>
+      </div>
+    </Section>
+
+    <!-- Przejdź do cwiczen -->
+    <div class="mt-12 text-center">
+      <a href="/exercises" class="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-semibold">
+        <RiFlaskLine className="size-5" />
+        Przejdz do cwiczen
+        <RiArrowRightSLine className="size-5" />
+      </a>
+    </div>
 
   </div>
 </LessonLayout>

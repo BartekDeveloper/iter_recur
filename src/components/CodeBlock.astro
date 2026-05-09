@@ -14,14 +14,14 @@ const html = await codeToHtml(code, {
 });
 ---
 
-<div class="bg-card rounded-xl p-4 border border-border overflow-x-auto" set:html={html} />
+<div class="bg-card rounded-lg p-4 border border-border overflow-x-auto my-6" set:html={html} />
 
 <style is:global>
   .shiki {
     background: transparent !important;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.6;
   }
   pre {
     margin: 0;
