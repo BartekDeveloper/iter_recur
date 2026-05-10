@@ -48,7 +48,7 @@ export function Header({ currentPath }: HeaderProps) {
       </div>
     </header>
     <div>
-      <button className="fixed right-10 bottom-20 flex items-center justify-center w-12 h-12 rounded-full border-4 border-solid bg-emerald-400 text-emerald-100 border-emerald-100 dark:bg-emerald-800 dark:text-emerald-400 dark:border-emerald-700 text-lg transition-transform hover:translate-y-0.5 active:scale-95" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+      <button className="fixed right-8 bottom-10 flex items-center justify-center w-12 h-12 rounded-full border-4 border-solid bg-emerald-400 text-emerald-100 border-emerald-100 dark:bg-emerald-800 dark:text-emerald-400 dark:border-emerald-700 text-lg transition-transform hover:translate-y-0.5 active:scale-95" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
       &uarr;
       </button>
     </div>
