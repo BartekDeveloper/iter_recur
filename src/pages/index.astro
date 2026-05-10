@@ -2,6 +2,7 @@
 import LessonLayout from "@/layouts/LessonLayout.astro"
 import { Section, InfoBox } from "@/components/Section"
 import CodeBlock from "@/components/CodeBlock.astro"
+import * as CODE from "@/constants/code"
 import {
   RiRefreshLine,
   RiFunctionLine,
@@ -75,18 +76,7 @@ import {
         <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary text-sm">1</span>
         Przyklad: Odliczanie za pomoca petli
       </h3>
-        <CodeBlock code={`public class Main {
-      public static void main(String[] args) {
-        odliczanieIteracyjne(5);
-      }
-    
-      public static void odliczanieIteracyjne(int n) {
-        while (n > 0) {
-          System.out.println(n);
-          n--;
-        }
-      }
-    }`} lang="java" />
+        <CodeBlock code={CODE.odliczanieIteracyjne} lang="java" />
 
       <div class="mt-6">
         <h4 class="text-lg font-semibold text-foreground mb-3">Jak to działa?</h4>
@@ -145,17 +135,7 @@ import {
         <span class="w-8 h-8 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-500 text-sm">2</span>
         Przykład: Odliczanie z Rekurencją
       </h3>
-        <CodeBlock code={`public class Main {
-      public static void main(String[] args) {
-        odliczanieRekurencyjne(5);
-      }
-    
-      public static void odliczanieRekurencyjne(int n) {
-        if (n <= 0) return;
-        System.out.println(n);
-        odliczanieRekurencyjne(n - 1);
-      }
-    }`} lang="java" />
+        <CodeBlock code={CODE.odliczanieRekurencyjne} lang="java" />
     </Section>
 
     <!-- 3. Stos Wywolan -->
@@ -229,23 +209,10 @@ import {
       </p>
 
       <h3 class="text-xl font-semibold text-foreground mb-4">Silnia — Iteracyjnie</h3>
-        <CodeBlock code={`public class Main {
-      public static long silniaIteracyjna(int n) {
-        long wynik = 1;
-        for (int i = 1; i <= n; i++) {
-          wynik *= i;
-        }
-        return wynik;
-      }
-    }`} lang="java" />
+        <CodeBlock code={CODE.silniaIteracyjna} lang="java" />
 
       <h3 class="text-xl font-semibold text-foreground mb-4 mt-8">Silnia — Rekurencyjnie</h3>
-        <CodeBlock code={`public class Main {
-      public static long silniaRekurencyjna(int n) {
-        if (n <= 1) return 1;
-        return n * silniaRekurencyjna(n - 1);
-      }
-    }`} lang="java" />
+        <CodeBlock code={CODE.silniaRekurencyjna} lang="java" />
 
       <InfoBox borderColor="border-primary/30 bg-primary/5" className="mt-6">
         <p class="text-foreground">
@@ -347,9 +314,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-green-500 mb-3">1. Lepsza wydajność</h3>
               <p class="text-muted-foreground mb-3">Pętle zwykle działają szybciej niż rekurencja, ponieważ nie tworzą nowych wywołań funkcji.</p>
-                <CodeBlock code={`for (int i = 0; i < 1000; i++) {
-          // szybkie powtarzanie
-        }`} lang="java" />
+                <CodeBlock code={CODE.simpleForLoop} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -438,10 +403,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-purple-500 mb-3">2. Krotszy i czystszy kod</h3>
               <p class="text-muted-foreground mb-3">Rekurencja często pozwala napisać mniej kodu.</p>
-              <CodeBlock code={`public static long factorial(int n) {
-    if (n <= 1) return 1;
-    return n * factorial(n - 1);
-}`} lang="java" />
+              <CodeBlock code={CODE.factorialShort} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -484,9 +446,7 @@ import {
               <h3 class="text-xl font-bold text-red-500 mb-3">2. Ryzyko Stack Overflow</h3>
               <p class="text-muted-foreground mb-3">Jeśli rekurencja jest zbyt głęboka albo nie ma poprawnego przypadku bazowego, program może się zatrzymać.</p>
               <p class="text-muted-foreground mb-2">Przyklad zlej rekurencji:</p>
-                <CodeBlock code={`public static void zlaRekurencja() {
-          zlaRekurencja();
-        }`} lang="java" />
+                <CodeBlock code={CODE.zlaRekurencja} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -541,10 +501,7 @@ import {
               <h3 class="text-xl font-bold text-red-500 mb-3">Nie kazda rekurencja jest efektywna</h3>
               <p class="text-muted-foreground mb-3">Niektore algorytmy rekurencyjne wykonuja te same obliczenia wiele razy.</p>
               <p class="text-muted-foreground mb-2">Przyklad: Fibonacci bez optymalizacji</p>
-                <CodeBlock code={`public static long fibonacci(int n) {
-          if (n <= 1) return n;
-          return fibonacci(n - 1) + fibonacci(n - 2);
-        }`} lang="java" />
+                <CodeBlock code={CODE.fibonacci} lang="java" />
               <p class="text-sm text-orange-500 mt-2">Dla n=40 ta funkcja wykonuje około 300 milionów wywołań!</p>
             </div>
           </div>
@@ -563,7 +520,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-teal-500 mb-3">1. Zawsze dodawaj Przypadek Bazowy</h3>
               <p class="text-muted-foreground mb-3">Bez warunku stopu rekurencja nigdy się nie zakończy.</p>
-              <CodeBlock code={`if (n <= 0) return;`} lang="java" />
+              <CodeBlock code={CODE.ifBaseCase} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -598,14 +555,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-teal-500 mb-3">3. Używaj Memoization</h3>
               <p class="text-muted-foreground mb-3">Memoization zapisuje wcześniejsze wyniki, aby nie liczyć ich ponownie.</p>
-                <CodeBlock code={`static long[] pamiec = new long[1000];
-
-        public static long fibonacciMemo(int n) {
-          if (n <= 1) return n;
-          if (pamiec[n] != 0) return pamiec[n];
-          pamiec[n] = fibonacciMemo(n - 1) + fibonacciMemo(n - 2);
-          return pamiec[n];
-        }`} lang="java" />
+                <CodeBlock code={CODE.fibonacciMemo} lang="java" />
               <p class="text-sm text-green-500 mt-2">Zamiast ~300 milionów wywołań, teraz tylko ~200!</p>
             </div>
           </div>
@@ -631,13 +581,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-teal-500 mb-3">5. Limit głębokości</h3>
               <p class="text-muted-foreground mb-3">Możesz ograniczyć maksymalną głębokość rekurencji:</p>
-                <CodeBlock code={`static final int LIMIT_GLEBOKOSCI = 10000;
-
-        public static void bezpiecznaRekurencja(int n, int depth) {
-          if (depth > LIMIT_GLEBOKOSCI) return;
-          if (n <= 0) return;
-          bezpiecznaRekurencja(n - 1, depth + 1);
-        }`} lang="java" />
+                <CodeBlock code={CODE.bezpiecznaRekurencja} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -650,16 +594,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-teal-500 mb-3">6. Śledzenie głębokości wywołań</h3>
               <p class="text-muted-foreground mb-3">Monitoruj aktualną głębokość rekurencji w czasie rzeczywistym:</p>
-                <CodeBlock code={`static int aktualnaGlebokosc = 0;
-        static int maxZarejestrowanaGlebokosc = 0;
-
-        public static void rekurencjaZeSledzeniem(int n) {
-          aktualnaGlebokosc++;
-          maxZarejestrowanaGlebokosc = Math.max(maxZarejestrowanaGlebokosc, aktualnaGlebokosc);
-          if (n <= 0) { aktualnaGlebokosc--; return; }
-          rekurencjaZeSledzeniem(n - 1);
-          aktualnaGlebokosc--;
-        }`} lang="java" />
+                <CodeBlock code={CODE.rekurencjaZeSledzeniem} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -672,10 +607,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-teal-500 mb-3">7. Rekurencja ogonowa (Tail Recursion)</h3>
               <p class="text-muted-foreground mb-3">Ostatnia operacja to wywołanie rekurencyjne:</p>
-                <CodeBlock code={`public static long silniaOgonowa(int n, long ak) {
-          if (n <= 1) return ak;
-          return silniaOgonowa(n - 1, ak * n);
-        }`} lang="java" />
+                <CodeBlock code={CODE.silniaOgonowa} lang="java" />
               <p class="text-sm text-muted-foreground mt-2">Java NIE optymalizuje tail recursion!</p>
             </div>
           </div>
@@ -748,20 +680,7 @@ import {
       </p>
 
       <h3 class="text-xl font-semibold text-foreground mb-4">Przykład: Przechodzenie przez katalogi</h3>
-        <CodeBlock code={`public static void przegladKatalogu(File dir, int indent) {
-      if (!dir.isDirectory()) return;
-      File[] files = dir.listFiles();
-      if (files == null) return;
-      for (File file : files) {
-        for (int i = 0; i < indent; i++) System.out.print("  ");
-        if (file.isDirectory()) {
-          System.out.println("[DIR] " + file.getName());
-          przegladKatalogu(file, indent + 1);
-        } else {
-          System.out.println("[FILE] " + file.getName());
-        }
-      }
-    }`} lang="java" />
+        <CodeBlock code={CODE.przegladKatalogu} lang="java" />
     </Section>
 
     <!-- 15. Wiecej Przykladow -->
@@ -775,13 +694,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-rose-500 mb-3">Binary Search</h3>
               <p class="text-muted-foreground mb-3">Podziel tablicę na połowy, szukaj w odpowiedniej części.</p>
-                <CodeBlock code={`public static int wyszukiwanieBinarne(int[] tab, int cel, int lewy, int prawy) {
-          if (lewy > prawy) return -1;
-          int srodek = lewy + (prawy - lewy) / 2;
-          if (tab[srodek] == cel) return srodek;
-          if (tab[srodek] < cel) return wyszukiwanieBinarne(tab, cel, srodek + 1, prawy);
-          return wyszukiwanieBinarne(tab, cel, lewy, srodek - 1);
-        }`} lang="java" />
+                <CodeBlock code={CODE.wyszukiwanieBinarne} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -794,16 +707,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-rose-500 mb-3">Tree Traversal</h3>
               <p class="text-muted-foreground mb-3">Odwiedź każdy węzeł drzewa.</p>
-                <CodeBlock code={`public static void drukujDrzewo(TreeNode wezel, int glebokosc) {
-          if (wezel == null) return;
-          for (int i = 0; i < glebokosc; i++) System.out.print("  ");
-          System.out.println(wezel.name);
-          if (wezel.children != null) {
-            for (TreeNode child : wezel.children) {
-              drukujDrzewo(child, glebokosc + 1);
-            }
-          }
-        }`} lang="java" />
+                <CodeBlock code={CODE.drukujDrzewo} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -816,16 +720,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-rose-500 mb-3">Permutacje</h3>
               <p class="text-muted-foreground mb-3">Wygeneruj wszystkie możliwe kolejności elementów.</p>
-                <CodeBlock code={`public static void permutacje(String napis, String wynik) {
-          if (napis.length() == 0) {
-            System.out.println(wynik);
-            return;
-          }
-          for (int i = 0; i < napis.length(); i++) {
-            String newStr = napis.substring(0, i) + napis.substring(i + 1);
-            permutacje(newStr, wynik + napis.charAt(i));
-          }
-        }`} lang="java" />
+                <CodeBlock code={CODE.permutacje} lang="java" />
             </div>
           </div>
         </InfoBox>
