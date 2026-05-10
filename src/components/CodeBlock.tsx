@@ -56,9 +56,10 @@ function escapeHtml(str: string) {
 interface Props {
   code: string;
   lang?: string;
+  className?: string;
 }
 
-export default function CodeBlock({ code, lang = "java" }: Props) {
+export default function CodeBlock({ code, lang = "java", className = "" }: Props) {
   const theme = useTheme();
   const themeName = theme === "dark" ? "github-dark" : "github-light";
   const [html, setHtml] = useState<string>("");
@@ -79,6 +80,6 @@ export default function CodeBlock({ code, lang = "java" }: Props) {
   }, [code, lang, themeName]);
 
   return (
-    <div className="bg-card *:bg-transparent! rounded-lg p-4 border border-border overflow-x-auto my-6" dangerouslySetInnerHTML={{ __html: html }} />
+    <div className={`bg-card *:bg-transparent! rounded-lg p-4 border border-border overflow-x-auto my-6 ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
   );
 }
