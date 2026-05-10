@@ -70,7 +70,7 @@ export default function CodeBlock({ code, lang = "java" }: Props) {
         const out = await codeToHtml(code, { lang, theme: themeName });
         if (!cancelled) setHtml(out);
       } catch (e) {
-        if (!cancelled) setHtml(`<pre class=\"shiki\"><code>${escapeHtml(code)}</code></pre>`);
+        if (!cancelled) setHtml(`<pre class="shiki whitespace-pre-wrap overflow-x-auto"><code>${escapeHtml(code)}</code></pre>`);
       }
     })();
     return () => {

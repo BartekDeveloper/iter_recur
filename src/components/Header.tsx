@@ -13,7 +13,7 @@ export function Header({ currentPath }: HeaderProps) {
     <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <h1 className="none md:block text-xl font-bold text-foreground font-heading">
+          <h1 className="hidden md:block text-xl font-bold text-foreground font-heading">
             Iteracja vs Rekurencja
           </h1>
           <div className="flex items-center gap-3">
@@ -48,7 +48,7 @@ export function Header({ currentPath }: HeaderProps) {
       </div>
     </header>
     <div>
-      <button className="fixed right-1 bottom-2 text-lg bg-emerald-400 dark:bg-emerald-800 flex text-center items-center content-center align-middle border-emerald-100 text-emerald-100 dark:text-emerald-400 dark:border-emerald-700 border-4 border-solid rounded-full w-12 h-12 p-4 mr-1 mb-2 hover:translate-y-0.5 hover:bg-emerald-300 hover:dark:bg-emerald-900" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+      <button className="fixed right-10 bottom-20 flex items-center justify-center w-12 h-12 rounded-full border-4 border-solid bg-emerald-400 text-emerald-100 border-emerald-100 dark:bg-emerald-800 dark:text-emerald-400 dark:border-emerald-700 text-lg transition-transform hover:translate-y-0.5 active:scale-95" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
       &uarr;
       </button>
     </div>
