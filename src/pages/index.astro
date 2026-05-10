@@ -1,7 +1,7 @@
 ---
 import LessonLayout from "@/layouts/LessonLayout.astro"
 import { Section, InfoBox } from "@/components/Section"
-import CodeBlock from "@/components/CodeBlock.astro"
+import CodeBlock from "@/components/CodeBlock.tsx"
 import * as CODE from "@/constants/code"
 import {
   RiRefreshLine,
@@ -76,7 +76,7 @@ import {
         <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary text-sm">1</span>
         Przyklad: Odliczanie za pomoca petli
       </h3>
-        <CodeBlock code={CODE.odliczanieIteracyjne} lang="java" />
+        <CodeBlock client:load code={CODE.odliczanieIteracyjne} lang="java" />
 
       <div class="mt-6">
         <h4 class="text-lg font-semibold text-foreground mb-3">Jak to działa?</h4>
@@ -135,7 +135,7 @@ import {
         <span class="w-8 h-8 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-500 text-sm">2</span>
         Przykład: Odliczanie z Rekurencją
       </h3>
-        <CodeBlock code={CODE.odliczanieRekurencyjne} lang="java" />
+        <CodeBlock client:load code={CODE.odliczanieRekurencyjne} lang="java" />
     </Section>
 
     <!-- 3. Stos Wywolan -->
@@ -209,10 +209,10 @@ import {
       </p>
 
       <h3 class="text-xl font-semibold text-foreground mb-4">Silnia — Iteracyjnie</h3>
-        <CodeBlock code={CODE.silniaIteracyjna} lang="java" />
+        <CodeBlock client:load code={CODE.silniaIteracyjna} lang="java" />
 
       <h3 class="text-xl font-semibold text-foreground mb-4 mt-8">Silnia — Rekurencyjnie</h3>
-        <CodeBlock code={CODE.silniaRekurencyjna} lang="java" />
+        <CodeBlock client:load code={CODE.silniaRekurencyjna} lang="java" />
 
       <InfoBox borderColor="border-primary/30 bg-primary/5" className="mt-6">
         <p class="text-foreground">
@@ -314,7 +314,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-green-500 mb-3">1. Lepsza wydajność</h3>
               <p class="text-muted-foreground mb-3">Pętle zwykle działają szybciej niż rekurencja, ponieważ nie tworzą nowych wywołań funkcji.</p>
-                <CodeBlock code={CODE.simpleForLoop} lang="java" />
+                <CodeBlock client:load code={CODE.simpleForLoop} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -403,7 +403,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-purple-500 mb-3">2. Krotszy i czystszy kod</h3>
               <p class="text-muted-foreground mb-3">Rekurencja często pozwala napisać mniej kodu.</p>
-              <CodeBlock code={CODE.factorialShort} lang="java" />
+              <CodeBlock client:load code={CODE.factorialShort} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -446,7 +446,7 @@ import {
               <h3 class="text-xl font-bold text-red-500 mb-3">2. Ryzyko Stack Overflow</h3>
               <p class="text-muted-foreground mb-3">Jeśli rekurencja jest zbyt głęboka albo nie ma poprawnego przypadku bazowego, program może się zatrzymać.</p>
               <p class="text-muted-foreground mb-2">Przyklad zlej rekurencji:</p>
-                <CodeBlock code={CODE.zlaRekurencja} lang="java" />
+                <CodeBlock client:load code={CODE.zlaRekurencja} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -501,7 +501,7 @@ import {
               <h3 class="text-xl font-bold text-red-500 mb-3">Nie kazda rekurencja jest efektywna</h3>
               <p class="text-muted-foreground mb-3">Niektore algorytmy rekurencyjne wykonuja te same obliczenia wiele razy.</p>
               <p class="text-muted-foreground mb-2">Przyklad: Fibonacci bez optymalizacji</p>
-                <CodeBlock code={CODE.fibonacci} lang="java" />
+                <CodeBlock client:load code={CODE.fibonacci} lang="java" />
               <p class="text-sm text-orange-500 mt-2">Dla n=40 ta funkcja wykonuje około 300 milionów wywołań!</p>
             </div>
           </div>
@@ -520,7 +520,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-teal-500 mb-3">1. Zawsze dodawaj Przypadek Bazowy</h3>
               <p class="text-muted-foreground mb-3">Bez warunku stopu rekurencja nigdy się nie zakończy.</p>
-              <CodeBlock code={CODE.ifBaseCase} lang="java" />
+              <CodeBlock client:load code={CODE.ifBaseCase} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -555,7 +555,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-teal-500 mb-3">3. Używaj Memoization</h3>
               <p class="text-muted-foreground mb-3">Memoization zapisuje wcześniejsze wyniki, aby nie liczyć ich ponownie.</p>
-                <CodeBlock code={CODE.fibonacciMemo} lang="java" />
+                <CodeBlock client:load code={CODE.fibonacciMemo} lang="java" />
               <p class="text-sm text-green-500 mt-2">Zamiast ~300 milionów wywołań, teraz tylko ~200!</p>
             </div>
           </div>
@@ -581,7 +581,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-teal-500 mb-3">5. Limit głębokości</h3>
               <p class="text-muted-foreground mb-3">Możesz ograniczyć maksymalną głębokość rekurencji:</p>
-                <CodeBlock code={CODE.bezpiecznaRekurencja} lang="java" />
+                <CodeBlock client:load code={CODE.bezpiecznaRekurencja} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -594,7 +594,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-teal-500 mb-3">6. Śledzenie głębokości wywołań</h3>
               <p class="text-muted-foreground mb-3">Monitoruj aktualną głębokość rekurencji w czasie rzeczywistym:</p>
-                <CodeBlock code={CODE.rekurencjaZeSledzeniem} lang="java" />
+                <CodeBlock client:load code={CODE.rekurencjaZeSledzeniem} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -607,7 +607,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-teal-500 mb-3">7. Rekurencja ogonowa (Tail Recursion)</h3>
               <p class="text-muted-foreground mb-3">Ostatnia operacja to wywołanie rekurencyjne:</p>
-                <CodeBlock code={CODE.silniaOgonowa} lang="java" />
+                <CodeBlock client:load code={CODE.silniaOgonowa} lang="java" />
               <p class="text-sm text-muted-foreground mt-2">Java NIE optymalizuje tail recursion!</p>
             </div>
           </div>
@@ -680,7 +680,7 @@ import {
       </p>
 
       <h3 class="text-xl font-semibold text-foreground mb-4">Przykład: Przechodzenie przez katalogi</h3>
-        <CodeBlock code={CODE.przegladKatalogu} lang="java" />
+        <CodeBlock client:load code={CODE.przegladKatalogu} lang="java" />
     </Section>
 
     <!-- 15. Wiecej Przykladow -->
@@ -694,7 +694,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-rose-500 mb-3">Binary Search</h3>
               <p class="text-muted-foreground mb-3">Podziel tablicę na połowy, szukaj w odpowiedniej części.</p>
-                <CodeBlock code={CODE.wyszukiwanieBinarne} lang="java" />
+                <CodeBlock client:load code={CODE.wyszukiwanieBinarne} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -707,7 +707,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-rose-500 mb-3">Tree Traversal</h3>
               <p class="text-muted-foreground mb-3">Odwiedź każdy węzeł drzewa.</p>
-                <CodeBlock code={CODE.drukujDrzewo} lang="java" />
+                <CodeBlock client:load code={CODE.drukujDrzewo} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -720,7 +720,7 @@ import {
             <div>
               <h3 class="text-xl font-bold text-rose-500 mb-3">Permutacje</h3>
               <p class="text-muted-foreground mb-3">Wygeneruj wszystkie możliwe kolejności elementów.</p>
-                <CodeBlock code={CODE.permutacje} lang="java" />
+                <CodeBlock client:load code={CODE.permutacje} lang="java" />
             </div>
           </div>
         </InfoBox>
