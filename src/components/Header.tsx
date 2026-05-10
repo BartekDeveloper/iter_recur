@@ -32,7 +32,7 @@ export function Header({ currentPath }: HeaderProps) {
               <a
                 href="/iter_recur/exercises"
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  currentPath === "/iter_recur/exercises"
+                  currentPath === "/iter_recur/exercises" || currentPath === "/iter_recur/exercises/"
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
@@ -48,7 +48,9 @@ export function Header({ currentPath }: HeaderProps) {
       </div>
     </header>
     <div>
-      <button className="fixed right-1 bottom-2 text-lg bg-emerald-400 dark:bg-emerald-800 flex text-center items-center content-center align-middle border-emerald-100 text-emerald-100 dark:text-emerald-400 dark:border-emerald-700 border-4 border-solid rounded-full w-12 h-12 p-4 mr-1 mb-2 hover:translate-y-0.5 hover:bg-emerald-300 hover:dark:bg-emerald-900" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>&uarr;</button>
+      <button className="fixed right-1 bottom-2 text-lg bg-emerald-400 dark:bg-emerald-800 flex text-center items-center content-center align-middle border-emerald-100 text-emerald-100 dark:text-emerald-400 dark:border-emerald-700 border-4 border-solid rounded-full w-12 h-12 p-4 mr-1 mb-2 hover:translate-y-0.5 hover:bg-emerald-300 hover:dark:bg-emerald-900" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+      &uarr;
+      </button>
     </div>
     </>
   )
