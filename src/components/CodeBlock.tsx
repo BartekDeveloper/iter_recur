@@ -68,7 +68,7 @@ export default function CodeBlock({ code, lang = "java", className = "" }: Props
     let cancelled = false;
     (async () => {
       try {
-        const out = await codeToHtml(code, { lang, theme: themeName });
+        const out = await codeToHtml(code.replace(/^\n/, ""), { lang, theme: themeName });
         if (!cancelled) setHtml(out);
       } catch (e) {
         if (!cancelled) setHtml(`<pre class="shiki whitespace-pre-wrap overflow-x-auto"><code>${escapeHtml(code)}</code></pre>`);
@@ -80,6 +80,6 @@ export default function CodeBlock({ code, lang = "java", className = "" }: Props
   }, [code, lang, themeName]);
 
   return (
-    <div className={`bg-card *:bg-transparent! rounded-lg p-4 border border-border overflow-x-auto my-6 ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
+    <div className={`bg-card *:bg-transparent! rounded-lg p-4 border border-border overflow-x-auto mb-6 ${className}`} dangerouslySetInnerHTML={{ __html: html }} />
   );
 }
