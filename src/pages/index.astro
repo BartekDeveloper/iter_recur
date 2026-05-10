@@ -75,18 +75,18 @@ import {
         <span class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary text-sm">1</span>
         Przyklad: Odliczanie za pomoca petli
       </h3>
-      <CodeBlock code={`public class Main {
-    public static void main(String[] args) {
-        countdownIteration(5);
-    }
+        <CodeBlock code={`public class Main {
+      public static void main(String[] args) {
+        odliczanieIteracyjne(5);
+      }
     
-    public static void countdownIteration(int n) {
+      public static void odliczanieIteracyjne(int n) {
         while (n > 0) {
-            System.out.println(n);
-            n--;
+          System.out.println(n);
+          n--;
         }
-    }
-}`} lang="java" />
+      }
+    }`} lang="java" />
 
       <div class="mt-6">
         <h4 class="text-lg font-semibold text-foreground mb-3">Jak to działa?</h4>
@@ -98,7 +98,7 @@ import {
             <div>n = 3, drukuj 3, n--</div>
             <div>n = 2, drukuj 2, n--</div>
             <div>n = 1, drukuj 1, n--</div>
-            <div class="text-red-400">n = 0, warunek FAŁSZ, koniec</div>
+            <div class="text-red-400">n = 0, warunek fałsz, koniec</div>
           </div>
         </InfoBox>
       </div>
@@ -119,23 +119,23 @@ import {
       <div class="grid md:grid-cols-2 gap-6 mb-6">
         <InfoBox borderColor="border-green-500/40 bg-green-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiLightbulbLine className="size-7 text-green-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-green-500 mb-2">Przypadek Bazowy</h3>
-              <p className="text-muted-foreground text-sm">Warunek zatrzymania. Bez niego funkcja działałaby w nieskończoność!</p>
+              <h3 class="text-lg font-bold text-green-500 mb-2">Przypadek Bazowy</h3>
+              <p class="text-muted-foreground text-sm">Warunek zatrzymania. Bez niego funkcja działałaby w nieskończoność!</p>
             </div>
           </div>
         </InfoBox>
         <InfoBox borderColor="border-blue-500/40 bg-blue-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiRefreshLine className="size-7 text-blue-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-blue-500 mb-2">Krok Rekurencyjny</h3>
-              <p className="text-muted-foreground text-sm">Funkcja wywołuje sama siebie z mniejszym lub prostszym problemem.</p>
+              <h3 class="text-lg font-bold text-blue-500 mb-2">Krok Rekurencyjny</h3>
+              <p class="text-muted-foreground text-sm">Funkcja wywołuje sama siebie z mniejszym lub prostszym problemem.</p>
             </div>
           </div>
         </InfoBox>
@@ -145,17 +145,17 @@ import {
         <span class="w-8 h-8 bg-purple-500/10 rounded-full flex items-center justify-center text-purple-500 text-sm">2</span>
         Przykład: Odliczanie z Rekurencją
       </h3>
-      <CodeBlock code={`public class Main {
-    public static void main(String[] args) {
-        countdownRecursion(5);
-    }
+        <CodeBlock code={`public class Main {
+      public static void main(String[] args) {
+        odliczanieRekurencyjne(5);
+      }
     
-    public static void countdownRecursion(int n) {
+      public static void odliczanieRekurencyjne(int n) {
         if (n <= 0) return;
         System.out.println(n);
-        countdownRecursion(n - 1);
-    }
-}`} lang="java" />
+        odliczanieRekurencyjne(n - 1);
+      }
+    }`} lang="java" />
     </Section>
 
     <!-- 3. Stos Wywolan -->
@@ -172,12 +172,12 @@ import {
       
       <InfoBox borderColor="border-red-500/40 bg-red-500/5">
         <div class="flex">
-          <div class="w-10 flex-shrink-0">
+          <div class="w-10 shrink-0">
             <RiAlertLine className="size-7 text-red-500" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-red-500 mb-2">Stack Overflow</h3>
-            <p className="text-muted-foreground">
+            <h3 class="text-xl font-bold text-red-500 mb-2">Stack Overflow</h3>
+            <p class="text-muted-foreground">
               Jeśli wywołań będzie zbyt dużo, program może się zatrzymać z błędem <span class="font-mono text-red-400">StackOverflowError</span>.
               Iteracja zazwyczaj nie ma tego problemu.
             </p>
@@ -194,13 +194,13 @@ import {
       <div class="grid md:grid-cols-2 gap-6">
         <InfoBox borderColor="border-blue-500/40 bg-blue-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiRefreshLine className="size-7 text-blue-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-blue-500 mb-3">Iteracja = Bieżnia</h3>
-              <p className="text-muted-foreground mb-3">Powtarzasz kroki, dopóki warunek nie powie "stop".</p>
-              <div className="font-mono text-sm text-muted-foreground bg-muted p-2 rounded">
+              <h3 class="text-lg font-bold text-blue-500 mb-3">Iteracja = Bieżnia</h3>
+              <p class="text-muted-foreground mb-3">Powtarzasz kroki, dopóki warunek nie powie "stop".</p>
+              <div class="font-mono text-sm text-muted-foreground bg-muted p-2 rounded">
                 krok -> sprawdzenie -> krok -> sprawdzenie
               </div>
             </div>
@@ -208,13 +208,13 @@ import {
         </InfoBox>
         <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiFunctionLine className="size-7 text-purple-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-purple-500 mb-3">Rekurencja = Matrioszki</h3>
-              <p className="text-muted-foreground">Otwierasz jedną lalkę, potem kolejną mniejszą, potem następną...</p>
-              <p className="text-muted-foreground mt-2">Na końcu dochodzisz do najmniejszej lalki (przypadek bazowy), a potem wracasz z powrotem.</p>
+              <h3 class="text-lg font-bold text-purple-500 mb-3">Rekurencja = Matrioszki</h3>
+              <p class="text-muted-foreground">Otwierasz jedną lalkę, potem kolejną mniejszą, potem następną...</p>
+              <p class="text-muted-foreground mt-2">Na końcu dochodzisz do najmniejszej lalki (przypadek bazowy), a potem wracasz z powrotem.</p>
             </div>
           </div>
         </InfoBox>
@@ -229,27 +229,27 @@ import {
       </p>
 
       <h3 class="text-xl font-semibold text-foreground mb-4">Silnia — Iteracyjnie</h3>
-      <CodeBlock code={`public class Factorial {
-    public static long factorialIteration(int n) {
-        long result = 1;
+        <CodeBlock code={`public class Main {
+      public static long silniaIteracyjna(int n) {
+        long wynik = 1;
         for (int i = 1; i <= n; i++) {
-            result *= i;
+          wynik *= i;
         }
-        return result;
-    }
-}`} lang="java" />
+        return wynik;
+      }
+    }`} lang="java" />
 
       <h3 class="text-xl font-semibold text-foreground mb-4 mt-8">Silnia — Rekurencyjnie</h3>
-      <CodeBlock code={`public class Factorial {
-    public static long factorialRecursion(int n) {
+        <CodeBlock code={`public class Main {
+      public static long silniaRekurencyjna(int n) {
         if (n <= 1) return 1;
-        return n * factorialRecursion(n - 1);
-    }
-}`} lang="java" />
+        return n * silniaRekurencyjna(n - 1);
+      }
+    }`} lang="java" />
 
       <InfoBox borderColor="border-primary/30 bg-primary/5" className="mt-6">
-        <p className="text-foreground">
-          <strong className="text-primary">Wynik:</strong> factorial(5) = 120
+        <p class="text-foreground">
+          <strong class="text-primary">Wynik:</strong> factorial(5) = 120
         </p>
       </InfoBox>
     </Section>
@@ -341,39 +341,39 @@ import {
       <div class="space-y-6">
         <InfoBox borderColor="border-green-500/40 bg-green-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-green-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-green-500 mb-3">1. Lepsza wydajność</h3>
-              <p className="text-muted-foreground mb-3">Pętle zwykle działają szybciej niż rekurencja, ponieważ nie tworzą nowych wywołań funkcji.</p>
-              <CodeBlock code={`for (int i = 0; i < 1000; i++) {
-    // szybkie powtarzanie
-}`} lang="java" />
+              <h3 class="text-xl font-bold text-green-500 mb-3">1. Lepsza wydajność</h3>
+              <p class="text-muted-foreground mb-3">Pętle zwykle działają szybciej niż rekurencja, ponieważ nie tworzą nowych wywołań funkcji.</p>
+                <CodeBlock code={`for (int i = 0; i < 1000; i++) {
+          // szybkie powtarzanie
+        }`} lang="java" />
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-green-500/40 bg-green-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-green-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-green-500 mb-3">2. Mniejsze zużycie pamięci</h3>
-              <p className="text-muted-foreground">Iteracja działa w jednym miejscu pamięci. Nie tworzy nowych "warstw" na stosie wywołań.</p>
+              <h3 class="text-xl font-bold text-green-500 mb-3">2. Mniejsze zużycie pamięci</h3>
+              <p class="text-muted-foreground">Iteracja działa w jednym miejscu pamięci. Nie tworzy nowych "warstw" na stosie wywołań.</p>
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-green-500/40 bg-green-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-green-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-green-500 mb-3">3. Dobra dla dużych danych</h3>
-              <p className="text-muted-foreground">Jeśli trzeba przetworzyć tysiące lub miliony elementów, iteracja jest zazwyczaj bezpieczniejsza.</p>
+              <h3 class="text-xl font-bold text-green-500 mb-3">3. Dobra dla dużych danych</h3>
+              <p class="text-muted-foreground">Jeśli trzeba przetworzyć tysiące lub miliony elementów, iteracja jest zazwyczaj bezpieczniejsza.</p>
             </div>
           </div>
         </InfoBox>
@@ -385,24 +385,24 @@ import {
       <div class="space-y-6">
         <InfoBox borderColor="border-red-500/40 bg-red-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCloseCircleLine className="size-7 text-red-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-red-500 mb-3">1. Kod może być mniej czytelny</h3>
-              <p className="text-muted-foreground">Przy bardzo skomplikowanych problemach wiele pętli i warunków może stać się trudne do zrozumienia.</p>
+              <h3 class="text-xl font-bold text-red-500 mb-3">1. Kod może być mniej czytelny</h3>
+              <p class="text-muted-foreground">Przy bardzo skomplikowanych problemach wiele pętli i warunków może stać się trudne do zrozumienia.</p>
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-red-500/40 bg-red-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCloseCircleLine className="size-7 text-red-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-red-500 mb-3">2. Gorzej działa przy strukturach zagnieżdżonych</h3>
-              <p className="text-muted-foreground">Drzewa, foldery lub HTML często łatwiej obsłużyć rekurencją.</p>
+              <h3 class="text-xl font-bold text-red-500 mb-3">2. Gorzej działa przy strukturach zagnieżdżonych</h3>
+              <p class="text-muted-foreground">Drzewa, foldery lub HTML często łatwiej obsłużyć rekurencją.</p>
             </div>
           </div>
         </InfoBox>
@@ -414,12 +414,12 @@ import {
       <div class="space-y-6">
         <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-purple-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-purple-500 mb-3">1. Bardziej naturalne rozwiązanie</h3>
-              <p className="text-muted-foreground mb-3">Niektóre problemy "same proszą się" o rekurencję:</p>
+              <h3 class="text-xl font-bold text-purple-500 mb-3">1. Bardziej naturalne rozwiązanie</h3>
+              <p class="text-muted-foreground mb-3">Niektóre problemy "same proszą się" o rekurencję:</p>
               <ul class="list-disc list-inside text-muted-foreground ml-2 space-y-1">
                 <li>drzewa</li>
                 <li>foldery / system plików</li>
@@ -432,12 +432,12 @@ import {
 
         <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-purple-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-purple-500 mb-3">2. Krotszy i czystszy kod</h3>
-              <p className="text-muted-foreground mb-3">Rekurencja często pozwala napisać mniej kodu.</p>
+              <h3 class="text-xl font-bold text-purple-500 mb-3">2. Krotszy i czystszy kod</h3>
+              <p class="text-muted-foreground mb-3">Rekurencja często pozwala napisać mniej kodu.</p>
               <CodeBlock code={`public static long factorial(int n) {
     if (n <= 1) return 1;
     return n * factorial(n - 1);
@@ -448,12 +448,12 @@ import {
 
         <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-purple-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-purple-500 mb-3">3. Łatwiejsze myślenie o problemie</h3>
-              <p className="text-muted-foreground">Problem można dzielić na mniejsze wersje tego samego zadania.</p>
+              <h3 class="text-xl font-bold text-purple-500 mb-3">3. Łatwiejsze myślenie o problemie</h3>
+              <p class="text-muted-foreground">Problem można dzielić na mniejsze wersje tego samego zadania.</p>
             </div>
           </div>
         </InfoBox>
@@ -465,52 +465,52 @@ import {
       <div class="space-y-6">
         <InfoBox borderColor="border-red-500/40 bg-red-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCloseCircleLine className="size-7 text-red-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-red-500 mb-3">1. Większe zużycie pamięci</h3>
-              <p className="text-muted-foreground">Każde wywołanie funkcji trafia na stos wywołań. Duża liczba wywołań = większe zużycie pamięci.</p>
+              <h3 class="text-xl font-bold text-red-500 mb-3">1. Większe zużycie pamięci</h3>
+              <p class="text-muted-foreground">Każde wywołanie funkcji trafia na stos wywołań. Duża liczba wywołań = większe zużycie pamięci.</p>
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-red-500/40 bg-red-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCloseCircleLine className="size-7 text-red-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-red-500 mb-3">2. Ryzyko Stack Overflow</h3>
-              <p className="text-muted-foreground mb-3">Jeśli rekurencja jest zbyt głęboka albo nie ma poprawnego przypadku bazowego, program może się zatrzymać.</p>
-              <p className="text-muted-foreground mb-2">Przyklad zlej rekurencji:</p>
-              <CodeBlock code={`public static void badRecursion() {
-    badRecursion();
-}`} lang="java" />
+              <h3 class="text-xl font-bold text-red-500 mb-3">2. Ryzyko Stack Overflow</h3>
+              <p class="text-muted-foreground mb-3">Jeśli rekurencja jest zbyt głęboka albo nie ma poprawnego przypadku bazowego, program może się zatrzymać.</p>
+              <p class="text-muted-foreground mb-2">Przyklad zlej rekurencji:</p>
+                <CodeBlock code={`public static void zlaRekurencja() {
+          zlaRekurencja();
+        }`} lang="java" />
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-red-500/40 bg-red-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCloseCircleLine className="size-7 text-red-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-red-500 mb-3">3. Wolniejsze działanie</h3>
-              <p className="text-muted-foreground">Każde wywołanie funkcji ma swoj koszt. Przy tysiącach wywołań może to znaczaco spowolnić program.</p>
+              <h3 class="text-xl font-bold text-red-500 mb-3">3. Wolniejsze działanie</h3>
+              <p class="text-muted-foreground">Każde wywołanie funkcji ma swoj koszt. Przy tysiącach wywołań może to znaczaco spowolnić program.</p>
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-red-500/40 bg-red-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCloseCircleLine className="size-7 text-red-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-red-500 mb-3">4. Trudniejsze debugowanie</h3>
-              <p className="text-muted-foreground">Śledzenie wielu wywołań funkcji może być trudniejsze niż analiza zwykłych pętli.</p>
+              <h3 class="text-xl font-bold text-red-500 mb-3">4. Trudniejsze debugowanie</h3>
+              <p class="text-muted-foreground">Śledzenie wielu wywołań funkcji może być trudniejsze niż analiza zwykłych pętli.</p>
             </div>
           </div>
         </InfoBox>
@@ -522,30 +522,30 @@ import {
       <div class="space-y-6">
         <InfoBox borderColor="border-orange-500/40 bg-orange-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiAlertLine className="size-7 text-orange-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-orange-500 mb-3">Limit głębokości</h3>
-              <p className="text-muted-foreground">Większość języków programowania ma limit liczby wywołań funkcji. JavaScript, Python, Java mogą wyrzucić błąd po zbyt głębokiej rekurencji.</p>
+              <h3 class="text-xl font-bold text-orange-500 mb-3">Limit głębokości</h3>
+              <p class="text-muted-foreground">Większość języków programowania ma limit liczby wywołań funkcji. JavaScript, Python, Java mogą wyrzucić błąd po zbyt głębokiej rekurencji.</p>
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-red-500/40 bg-red-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiAlertLine className="size-7 text-red-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-red-500 mb-3">Nie kazda rekurencja jest efektywna</h3>
-              <p className="text-muted-foreground mb-3">Niektore algorytmy rekurencyjne wykonuja te same obliczenia wiele razy.</p>
-              <p className="text-muted-foreground mb-2">Przyklad: Fibonacci bez optymalizacji</p>
-              <CodeBlock code={`public static long fibonacci(int n) {
-    if (n <= 1) return n;
-    return fibonacci(n - 1) + fibonacci(n - 2);
-}`} lang="java" />
-              <p className="text-sm text-orange-500 mt-2">Dla n=40 ta funkcja wykonuje około 300 milionów wywołań!</p>
+              <h3 class="text-xl font-bold text-red-500 mb-3">Nie kazda rekurencja jest efektywna</h3>
+              <p class="text-muted-foreground mb-3">Niektore algorytmy rekurencyjne wykonuja te same obliczenia wiele razy.</p>
+              <p class="text-muted-foreground mb-2">Przyklad: Fibonacci bez optymalizacji</p>
+                <CodeBlock code={`public static long fibonacci(int n) {
+          if (n <= 1) return n;
+          return fibonacci(n - 1) + fibonacci(n - 2);
+        }`} lang="java" />
+              <p class="text-sm text-orange-500 mt-2">Dla n=40 ta funkcja wykonuje około 300 milionów wywołań!</p>
             </div>
           </div>
         </InfoBox>
@@ -557,12 +557,12 @@ import {
       <div class="space-y-6">
         <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-teal-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-teal-500 mb-3">1. Zawsze dodawaj Przypadek Bazowy</h3>
-              <p className="text-muted-foreground mb-3">Bez warunku stopu rekurencja nigdy się nie zakończy.</p>
+              <h3 class="text-xl font-bold text-teal-500 mb-3">1. Zawsze dodawaj Przypadek Bazowy</h3>
+              <p class="text-muted-foreground mb-3">Bez warunku stopu rekurencja nigdy się nie zakończy.</p>
               <CodeBlock code={`if (n <= 0) return;`} lang="java" />
             </div>
           </div>
@@ -570,12 +570,12 @@ import {
 
         <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-teal-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-teal-500 mb-3">2. Upewnij się, że problem się zmniejsza</h3>
-              <p className="text-muted-foreground mb-3">Każde wywołanie powinno przybliżać funkcję do zakończenia.</p>
+              <h3 class="text-xl font-bold text-teal-500 mb-3">2. Upewnij się, że problem się zmniejsza</h3>
+              <p class="text-muted-foreground mb-3">Każde wywołanie powinno przybliżać funkcję do zakończenia.</p>
               <div class="grid md:grid-cols-2 gap-4 mt-3">
                 <div class="p-3 rounded-lg bg-green-500/10 border border-green-500/30">
                   <p class="text-green-500 font-semibold mb-1">Dobrze</p>
@@ -592,91 +592,91 @@ import {
 
         <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-teal-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-teal-500 mb-3">3. Używaj Memoization</h3>
-              <p className="text-muted-foreground mb-3">Memoization zapisuje wcześniejsze wyniki, aby nie liczyć ich ponownie.</p>
-              <CodeBlock code={`static long[] memo = new long[1000];
+              <h3 class="text-xl font-bold text-teal-500 mb-3">3. Używaj Memoization</h3>
+              <p class="text-muted-foreground mb-3">Memoization zapisuje wcześniejsze wyniki, aby nie liczyć ich ponownie.</p>
+                <CodeBlock code={`static long[] pamiec = new long[1000];
 
-public static long fibonacciMemo(int n) {
-    if (n <= 1) return n;
-    if (memo[n] != 0) return memo[n];
-    memo[n] = fibonacciMemo(n - 1) + fibonacciMemo(n - 2);
-    return memo[n];
-}`} lang="java" />
-              <p className="text-sm text-green-500 mt-2">Zamiast ~300 milionów wywołań, teraz tylko ~200!</p>
+        public static long fibonacciMemo(int n) {
+          if (n <= 1) return n;
+          if (pamiec[n] != 0) return pamiec[n];
+          pamiec[n] = fibonacciMemo(n - 1) + fibonacciMemo(n - 2);
+          return pamiec[n];
+        }`} lang="java" />
+              <p class="text-sm text-green-500 mt-2">Zamiast ~300 milionów wywołań, teraz tylko ~200!</p>
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-teal-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-teal-500 mb-3">4. Zamień Rekurencję na Iteracje</h3>
-              <p className="text-muted-foreground">Jeśli głębokość może być bardzo duża, lepiej użyć pętli.</p>
+              <h3 class="text-xl font-bold text-teal-500 mb-3">4. Zamień Rekurencję na Iteracje</h3>
+              <p class="text-muted-foreground">Jeśli głębokość może być bardzo duża, lepiej użyć pętli.</p>
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-teal-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-teal-500 mb-3">5. Limit głębokości</h3>
-              <p className="text-muted-foreground mb-3">Możesz ograniczyć maksymalną głębokość rekurencji:</p>
-              <CodeBlock code={`static final int DEPTH_LIMIT = 10000;
+              <h3 class="text-xl font-bold text-teal-500 mb-3">5. Limit głębokości</h3>
+              <p class="text-muted-foreground mb-3">Możesz ograniczyć maksymalną głębokość rekurencji:</p>
+                <CodeBlock code={`static final int LIMIT_GLEBOKOSCI = 10000;
 
-public static void safeRecursion(int n, int depth) {
-    if (depth > DEPTH_LIMIT) return;
-    if (n <= 0) return;
-    safeRecursion(n - 1, depth + 1);
-}`} lang="java" />
+        public static void bezpiecznaRekurencja(int n, int depth) {
+          if (depth > LIMIT_GLEBOKOSCI) return;
+          if (n <= 0) return;
+          bezpiecznaRekurencja(n - 1, depth + 1);
+        }`} lang="java" />
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-teal-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-teal-500 mb-3">6. Śledzenie głębokości wywołań</h3>
-              <p className="text-muted-foreground mb-3">Monitoruj aktualną głębokość rekurencji w czasie rzeczywistym:</p>
-              <CodeBlock code={`static int currentDepth = 0;
-static int maxRecordedDepth = 0;
+              <h3 class="text-xl font-bold text-teal-500 mb-3">6. Śledzenie głębokości wywołań</h3>
+              <p class="text-muted-foreground mb-3">Monitoruj aktualną głębokość rekurencji w czasie rzeczywistym:</p>
+                <CodeBlock code={`static int aktualnaGlebokosc = 0;
+        static int maxZarejestrowanaGlebokosc = 0;
 
-public static void trackedRecursion(int n) {
-    currentDepth++;
-    maxRecordedDepth = Math.max(maxRecordedDepth, currentDepth);
-    if (n <= 0) { currentDepth--; return; }
-    trackedRecursion(n - 1);
-    currentDepth--;
-}`} lang="java" />
+        public static void rekurencjaZeSledzeniem(int n) {
+          aktualnaGlebokosc++;
+          maxZarejestrowanaGlebokosc = Math.max(maxZarejestrowanaGlebokosc, aktualnaGlebokosc);
+          if (n <= 0) { aktualnaGlebokosc--; return; }
+          rekurencjaZeSledzeniem(n - 1);
+          aktualnaGlebokosc--;
+        }`} lang="java" />
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-teal-500/40 bg-teal-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-teal-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-teal-500 mb-3">7. Rekurencja ogonowa (Tail Recursion)</h3>
-              <p className="text-muted-foreground mb-3">Ostatnia operacja to wywołanie rekurencyjne:</p>
-              <CodeBlock code={`public static long factorialTail(int n, long acc) {
-    if (n <= 1) return acc;
-    return factorialTail(n - 1, acc * n);
-}`} lang="java" />
-              <p className="text-sm text-muted-foreground mt-2">Java NIE optymalizuje tail recursion!</p>
+              <h3 class="text-xl font-bold text-teal-500 mb-3">7. Rekurencja ogonowa (Tail Recursion)</h3>
+              <p class="text-muted-foreground mb-3">Ostatnia operacja to wywołanie rekurencyjne:</p>
+                <CodeBlock code={`public static long silniaOgonowa(int n, long ak) {
+          if (n <= 1) return ak;
+          return silniaOgonowa(n - 1, ak * n);
+        }`} lang="java" />
+              <p class="text-sm text-muted-foreground mt-2">Java NIE optymalizuje tail recursion!</p>
             </div>
           </div>
         </InfoBox>
@@ -688,36 +688,36 @@ public static void trackedRecursion(int n) {
       <div class="space-y-6">
         <InfoBox borderColor="border-blue-500/40 bg-blue-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiRefreshLine className="size-7 text-blue-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-blue-500 mb-3">Użyj Iteracji Gdy:</h3>
+              <h3 class="text-xl font-bold text-blue-500 mb-3">Użyj Iteracji Gdy:</h3>
               <ul class="list-disc list-inside text-muted-foreground space-y-2">
                 <li>przetwarzasz tablice lub listy</li>
                 <li>ważna jest wydajność</li>
                 <li>problem polega na prostym powtarzaniu</li>
                 <li>dane są bardzo duże</li>
               </ul>
-              <p className="text-sm text-muted-foreground mt-3">Przykłady: liczenie średniej, pętle w grach</p>
+              <p class="text-sm text-muted-foreground mt-3">Przykłady: liczenie średniej, pętle w grach</p>
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiFunctionLine className="size-7 text-purple-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-purple-500 mb-3">Użyj Rekurencji Gdy:</h3>
+              <h3 class="text-xl font-bold text-purple-500 mb-3">Użyj Rekurencji Gdy:</h3>
               <ul class="list-disc list-inside text-muted-foreground space-y-2">
                 <li>problem można podzielić na mniejsze wersje</li>
                 <li>pracujesz z drzewami lub zagnieżdżonymi strukturami</li>
                 <li>dane mają strukturę "gałęzi"</li>
                 <li>dzięki temu kod jest prostszy i czytelniejszy</li>
               </ul>
-              <p className="text-sm text-muted-foreground mt-3">Przykłady: system plików, HTML/DOM</p>
+              <p class="text-sm text-muted-foreground mt-3">Przykłady: system plików, HTML/DOM</p>
             </div>
           </div>
         </InfoBox>
@@ -731,7 +731,7 @@ public static void trackedRecursion(int n) {
       </p>
       <InfoBox borderColor="border-amber-500/40 bg-amber-500/5" className="mb-6">
         <div class="flex">
-          <div class="w-10 flex-shrink-0">
+          <div class="w-10 shrink-0">
             <RiFunctionLine className="size-7 text-amber-500" />
           </div>
           <div>
@@ -748,20 +748,20 @@ public static void trackedRecursion(int n) {
       </p>
 
       <h3 class="text-xl font-semibold text-foreground mb-4">Przykład: Przechodzenie przez katalogi</h3>
-      <CodeBlock code={`public static void exploreDirectory(File dir, int indent) {
-    if (!dir.isDirectory()) return;
-    File[] files = dir.listFiles();
-    if (files == null) return;
-    for (File file : files) {
+        <CodeBlock code={`public static void przegladKatalogu(File dir, int indent) {
+      if (!dir.isDirectory()) return;
+      File[] files = dir.listFiles();
+      if (files == null) return;
+      for (File file : files) {
         for (int i = 0; i < indent; i++) System.out.print("  ");
         if (file.isDirectory()) {
-            System.out.println("[DIR] " + file.getName());
-            exploreDirectory(file, indent + 1);
+          System.out.println("[DIR] " + file.getName());
+          przegladKatalogu(file, indent + 1);
         } else {
-            System.out.println("[FILE] " + file.getName());
+          System.out.println("[FILE] " + file.getName());
         }
-    }
-}`} lang="java" />
+      }
+    }`} lang="java" />
     </Section>
 
     <!-- 15. Wiecej Przykladow -->
@@ -769,63 +769,63 @@ public static void trackedRecursion(int n) {
       <div class="space-y-6">
         <InfoBox borderColor="border-rose-500/40 bg-rose-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiBrainLine className="size-7 text-rose-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-rose-500 mb-3">Binary Search</h3>
-              <p className="text-muted-foreground mb-3">Podziel tablicę na połowy, szukaj w odpowiedniej części.</p>
-              <CodeBlock code={`public static int binarySearch(int[] arr, int target, int left, int right) {
-    if (left > right) return -1;
-    int mid = left + (right - left) / 2;
-    if (arr[mid] == target) return mid;
-    if (arr[mid] < target) return binarySearch(arr, target, mid + 1, right);
-    return binarySearch(arr, target, left, mid - 1);
-}`} lang="java" />
+              <h3 class="text-xl font-bold text-rose-500 mb-3">Binary Search</h3>
+              <p class="text-muted-foreground mb-3">Podziel tablicę na połowy, szukaj w odpowiedniej części.</p>
+                <CodeBlock code={`public static int wyszukiwanieBinarne(int[] tab, int cel, int lewy, int prawy) {
+          if (lewy > prawy) return -1;
+          int srodek = lewy + (prawy - lewy) / 2;
+          if (tab[srodek] == cel) return srodek;
+          if (tab[srodek] < cel) return wyszukiwanieBinarne(tab, cel, srodek + 1, prawy);
+          return wyszukiwanieBinarne(tab, cel, lewy, srodek - 1);
+        }`} lang="java" />
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-rose-500/40 bg-rose-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiGitBranchLine className="size-7 text-rose-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-rose-500 mb-3">Tree Traversal</h3>
-              <p className="text-muted-foreground mb-3">Odwiedź każdy węzeł drzewa.</p>
-              <CodeBlock code={`public static void printTree(TreeNode node, int depth) {
-    if (node == null) return;
-    for (int i = 0; i < depth; i++) System.out.print("  ");
-    System.out.println(node.name);
-    if (node.children != null) {
-        for (TreeNode child : node.children) {
-            printTree(child, depth + 1);
-        }
-    }
-}`} lang="java" />
+              <h3 class="text-xl font-bold text-rose-500 mb-3">Tree Traversal</h3>
+              <p class="text-muted-foreground mb-3">Odwiedź każdy węzeł drzewa.</p>
+                <CodeBlock code={`public static void drukujDrzewo(TreeNode wezel, int glebokosc) {
+          if (wezel == null) return;
+          for (int i = 0; i < glebokosc; i++) System.out.print("  ");
+          System.out.println(wezel.name);
+          if (wezel.children != null) {
+            for (TreeNode child : wezel.children) {
+              drukujDrzewo(child, glebokosc + 1);
+            }
+          }
+        }`} lang="java" />
             </div>
           </div>
         </InfoBox>
 
         <InfoBox borderColor="border-rose-500/40 bg-rose-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiFileChartLine className="size-7 text-rose-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-rose-500 mb-3">Permutacje</h3>
-              <p className="text-muted-foreground mb-3">Wygeneruj wszystkie możliwe kolejności elementów.</p>
-              <CodeBlock code={`public static void permutations(String str, String result) {
-    if (str.length() == 0) {
-        System.out.println(result);
-        return;
-    }
-    for (int i = 0; i < str.length(); i++) {
-        String newStr = str.substring(0, i) + str.substring(i + 1);
-        permutations(newStr, result + str.charAt(i));
-    }
-}`} lang="java" />
+              <h3 class="text-xl font-bold text-rose-500 mb-3">Permutacje</h3>
+              <p class="text-muted-foreground mb-3">Wygeneruj wszystkie możliwe kolejności elementów.</p>
+                <CodeBlock code={`public static void permutacje(String napis, String wynik) {
+          if (napis.length() == 0) {
+            System.out.println(wynik);
+            return;
+          }
+          for (int i = 0; i < napis.length(); i++) {
+            String newStr = napis.substring(0, i) + napis.substring(i + 1);
+            permutacje(newStr, wynik + napis.charAt(i));
+          }
+        }`} lang="java" />
             </div>
           </div>
         </InfoBox>
@@ -837,11 +837,11 @@ public static void trackedRecursion(int n) {
       <div class="grid md:grid-cols-2 gap-6">
         <InfoBox borderColor="border-blue-500/40 bg-blue-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiRefreshLine className="size-7 text-blue-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-blue-500 mb-3">Iteracja</h3>
+              <h3 class="text-xl font-bold text-blue-500 mb-3">Iteracja</h3>
               <ul class="text-muted-foreground space-y-2">
                 <li>używa pętli</li>
                 <li>jest szybsza i oszczędniejsza pamięciowo</li>
@@ -853,11 +853,11 @@ public static void trackedRecursion(int n) {
         </InfoBox>
         <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiFunctionLine className="size-7 text-purple-500" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-purple-500 mb-3">Rekurencja</h3>
+              <h3 class="text-xl font-bold text-purple-500 mb-3">Rekurencja</h3>
               <ul class="text-muted-foreground space-y-2">
                 <li>funkcja wywołuje sama siebie</li>
                 <li>świetna do zagnieżdżonych problemów</li>
@@ -876,34 +876,34 @@ public static void trackedRecursion(int n) {
       <div class="space-y-4">
         <InfoBox borderColor="border-purple-500/40 bg-purple-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiAlertLine className="size-7 text-purple-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-purple-500">Czy problem jest zagnieżdżony lub przypomina drzewo?</h3>
-              <p className="text-muted-foreground mt-2">Uzyj <strong class="text-purple-500">rekurencji</strong></p>
+              <h3 class="text-lg font-bold text-purple-500">Czy problem jest zagnieżdżony lub przypomina drzewo?</h3>
+              <p class="text-muted-foreground mt-2">Uzyj <strong class="text-purple-500">rekurencji</strong></p>
             </div>
           </div>
         </InfoBox>
         <InfoBox borderColor="border-blue-500/40 bg-blue-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiAlertLine className="size-7 text-blue-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-blue-500">Czy najważniejsza jest wydajność i pamięć?</h3>
-              <p className="text-muted-foreground mt-2">Uzyj <strong class="text-blue-500">iteracji</strong></p>
+              <h3 class="text-lg font-bold text-blue-500">Czy najważniejsza jest wydajność i pamięć?</h3>
+              <p class="text-muted-foreground mt-2">Uzyj <strong class="text-blue-500">iteracji</strong></p>
             </div>
           </div>
         </InfoBox>
         <InfoBox borderColor="border-green-500/40 bg-green-500/5">
           <div class="flex">
-            <div class="w-10 flex-shrink-0">
+            <div class="w-10 shrink-0">
               <RiCheckboxCircleLine className="size-7 text-green-500" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-green-500">Które rozwiązanie jest prostsze do zrozumienia?</h3>
-              <p className="text-muted-foreground mt-2">Zazwyczaj to bedzie <strong class="text-green-500">lepszy wybor!</strong></p>
+              <h3 class="text-lg font-bold text-green-500">Które rozwiązanie jest prostsze do zrozumienia?</h3>
+              <p class="text-muted-foreground mt-2">Zazwyczaj to bedzie <strong class="text-green-500">lepszy wybor!</strong></p>
             </div>
           </div>
         </InfoBox>
