@@ -153,3 +153,27 @@ public static long factorial(int n) {
   if (n <= 1) return 1;
   return n * factorial(n - 1);
 }`
+ 
+export const fibonacciIter = `
+public void fibonacciIter(int n) {
+    long n1 = 1, n2 = 1;
+
+    for(long i = 0; i < n; i++) {
+        long newN = n1+n2;
+        System.out.println(newN);
+
+        n1 = n2;
+        n2 = newN;
+    }
+}`;
+
+export const fibonacciRecur = `
+public int fibonacci(int n)  {
+    if(n == 0) {
+      return 0;
+    } else if(n == 1) {
+      return 1;
+    }
+
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}`;
